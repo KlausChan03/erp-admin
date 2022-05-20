@@ -1,10 +1,10 @@
-import type {App} from 'vue'
+import type { App } from 'vue'
 import setupInit from '@/packages/base'
 import mitt from 'mitt'
 import * as $axios from '@/packages/http/request'
-import {handleError} from '@/packages/debug'
-import {Component, readonly} from 'vue'
-import {themeConfig, httpNetwork} from '@/packages/config'
+import { handleError } from '@/packages/debug'
+import { Component, readonly } from 'vue'
+import { themeConfig, httpNetwork } from '@/packages/config'
 
 /**
  * router: {paths:[菜单],file:[菜单路由文件]},defaults:true,开启默认路由
@@ -17,20 +17,20 @@ import {themeConfig, httpNetwork} from '@/packages/config'
  */
 interface $optionsType {
     router?: {
-        file: Record<string, Component>, // 外接路由文件所在路径 import xxx from 'home.vue'
-        paths?: Array<any>,
-        defaults?: Boolean,
+        file: Record<string, Component> // 外接路由文件所在路径 import xxx from 'home.vue'
+        paths?: Array<any>
+        defaults?: Boolean
         replaceRouter?: Array<any> // 可以替换内部路由
-    },
+    }
     store?: {
-        module: object,
-    },
+        module: object
+    }
     layout?: {
         themeBar: any // 接受一个组件
-    },
+    }
     config?: {
-        themeConfig?: object,
-        httpNetwork?: object,
+        themeConfig?: object
+        httpNetwork?: object
     }
 }
 
@@ -49,8 +49,8 @@ const install = (app: App, options?: $optionsType) => {
             themeBar: options?.layout?.themeBar,
         },
         configApp: {
-            themeConfig: {...themeConfig, ...options?.config?.themeConfig},
-            httpNetwork: {...httpNetwork, ...options?.config?.httpNetwork},
+            themeConfig: { ...themeConfig, ...options?.config?.themeConfig },
+            httpNetwork: { ...httpNetwork, ...options?.config?.httpNetwork },
         },
     }
     console.log('_options', _options)
@@ -63,7 +63,4 @@ const install = (app: App, options?: $optionsType) => {
 
 export default install
 
-export {
-    $optionsType,
-    $axios,
-}
+export { $optionsType, $axios }

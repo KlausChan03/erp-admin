@@ -33,6 +33,7 @@ class UserController extends baseController {
                     password: token,
                 },
             })
+            console.log(ctx.request.body, result, token)
             if (result) {
                 this.ctx.cookies.set('token', token, {
                     maxAge: 1000 * 3600 * 30,  //cookie存储一天     设置过期时间后关闭浏览器重新打开cookie还存在

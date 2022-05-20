@@ -12,7 +12,7 @@ import { setupRouter } from '@www/web/router'
 import { setupStore } from '@www/web/store'
 import { setupGlobComponents } from '@www/web/components'
 import mitt from 'mitt'
-
+import 'vue-bag-admin/mock'
 const app = createApp(App)
 app.provide('$mitt', mitt())
 app.use(ElementPlus)

@@ -4,7 +4,7 @@ const baseController = require('./baseController');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-class BranchController extends baseController {
+class MenuController extends baseController {
 
     /**
      * 添加数据
@@ -12,7 +12,7 @@ class BranchController extends baseController {
      */
     async create() {
         const {ctx} = this;
-        const result = await ctx.model.Branch.create({...ctx.request.body})
+        const result = await ctx.model.Menu.create({...ctx.request.body})
         this.result({data: result})
     }
 
@@ -23,7 +23,7 @@ class BranchController extends baseController {
     async delete() {
         const {ctx} = this;
         const {id} = ctx.request.body;
-        const result = await ctx.model.Branch.destroy({
+        const result = await ctx.model.Menu.destroy({
             where: {id}
         })
         this.result({data: result})
@@ -36,7 +36,7 @@ class BranchController extends baseController {
     async deletes() {
         const {ctx} = this;
         const {ids} = ctx.request.body;
-        const result = await ctx.model.Branch.destroy({
+        const result = await ctx.model.Menu.destroy({
             where: {
                 id: [...ids]
             }
@@ -52,7 +52,7 @@ class BranchController extends baseController {
     async find() {
         const {ctx} = this;
         const {id} = ctx.request.body;
-        const result = await ctx.model.Branch.findOne({
+        const result = await ctx.model.Menu.findOne({
             where: {id}
         })
         this.result({data: result})
@@ -64,13 +64,12 @@ class BranchController extends baseController {
      */
     async all() {
         const {ctx} = this;
-        const {ks} = ctx.params;
+        const {ks} = ctx.request.body;
         const where = {}
         if (ks) {
             where.name = {[Op.like]: `%${ks}%`} // 模糊查詢 https://www.sequelize.com.cn/core-concepts/model-querying-basics
         }
-        console.log(ctx, ks, where, 'hi')
-        const result = await ctx.model.Branch.findAll({
+        const result = await ctx.model.Menu.findAll({
             where: {...where}
         })
         this.result({data: result})
@@ -83,7 +82,7 @@ class BranchController extends baseController {
     async update() {
         const {ctx} = this;
         const body = ctx.request.body;
-        const result = await ctx.model.Branch.update({
+        const result = await ctx.model.Menu.update({
             ...body,
         }, {
             where: {
@@ -94,4 +93,4 @@ class BranchController extends baseController {
     }
 }
 
-module.exports = BranchController;
+module.exports = MenuController;
