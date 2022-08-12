@@ -10,7 +10,7 @@ const themeConfig = {
     tabStyle: 1,
     // 是否折叠项目菜单
     foldPrjMenu: false,
-}
+};
 
 /**
  * 网络配置
@@ -38,9 +38,6 @@ const httpNetwork = {
     whiteList: ['/login', '/403', '/404', '/500', '/502', '/test'],
     // 重置路由
     resetPath: '/login',
-}
+};
 
-export {
-    themeConfig,
-    httpNetwork,
-}
+export { themeConfig, httpNetwork };

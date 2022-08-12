@@ -62,5 +62,5 @@ export default [
     'bag-iconfont-variable',
     'bag-iconfont-product-clas',
     'bag-iconfont-profit-mana',
-    'bag-iconfont-gallery-sear'
-]
+    'bag-iconfont-gallery-sear',
+];

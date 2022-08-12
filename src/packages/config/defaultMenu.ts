@@ -1,4 +1,4 @@
-import { addUniqueId } from '@/packages/utils/lodash'
+import { addUniqueId } from '@/packages/utils/lodash';
 // 看我写的文档字段介绍
 
 /**
@@ -14,6 +14,98 @@ const arr = [
         iframe: '',
         tabFix: true,
         keepAlive: false,
+    },
+    {
+        name: '基础资料',
+        router: '',
+        icon: 'BgIonfontClorCnf',
+        shows: 1,
+        children: [
+            {
+                name: '用户管理',
+                path: '/basic/member',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '角色管理',
+                path: '/basic/role',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '门店信息管理',
+                path: '/basic/store',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '账户信息管理',
+                path: '/basic/account',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '供应商信息管理',
+                path: '/basic/provider',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '投资人信息管理',
+                path: '/basic/investor',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '物品档案管理',
+                path: '/basic/goods',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+        ],
+    },
+    {
+        name: '财务管理',
+        router: '',
+        icon: 'BgIonfontJfen',
+        shows: 1,
+        children: [],
+    },
+    {
+        name: '查询报表',
+        router: '',
+        icon: 'BgIonfontBdongtu',
+        shows: 1,
+        children: [],
+    },
+    {
+        name: '期初资料',
+        router: '',
+        icon: 'BgIonfontWnjian',
+        shows: 1,
+        children: [],
     },
     {
         name: '系统管理',
@@ -193,36 +285,36 @@ const arr = [
             },
         ],
     },
-    {
-        name: '数据图表',
-        path: '',
-        icon: 'PieChartOutlined',
-        shows: 1,
-        tabHidden: false,
-        tabFix: false,
-        children: [
-            {
-                name: 'G2',
-                path: '/chart/g2',
-                icon: '',
-                shows: 1,
-                iframe: '',
-                tabHidden: false,
-                tabFix: false,
-                keepAlive: false,
-            },
-            {
-                name: 'G2plot',
-                path: '/chart/g2plot',
-                icon: '',
-                shows: 1,
-                iframe: '',
-                tabHidden: false,
-                tabFix: false,
-                keepAlive: false,
-            },
-        ],
-    },
+    // {
+    //     name: '数据图表',
+    //     path: '',
+    //     icon: 'PieChartOutlined',
+    //     shows: 1,
+    //     tabHidden: false,
+    //     tabFix: false,
+    //     children: [
+    //         {
+    //             name: 'G2',
+    //             path: '/chart/g2',
+    //             icon: '',
+    //             shows: 1,
+    //             iframe: '',
+    //             tabHidden: false,
+    //             tabFix: false,
+    //             keepAlive: false,
+    //         },
+    //         {
+    //             name: 'G2plot',
+    //             path: '/chart/g2plot',
+    //             icon: '',
+    //             shows: 1,
+    //             iframe: '',
+    //             tabHidden: false,
+    //             tabFix: false,
+    //             keepAlive: false,
+    //         },
+    //     ],
+    // },
     {
         name: '开发文档',
         path: '',
@@ -252,15 +344,15 @@ const arr = [
         tabFix: false,
         keepAlive: false,
     },
-    {
-        name: '打点吧',
-        path: '/admire',
-        icon: 'RedEnvelopeOutlined',
-        shows: 1,
-        tabHidden: false,
-        tabFix: false,
-        keepAlive: false,
-    },
+    // {
+    //     name: '打点吧',
+    //     path: '/admire',
+    //     icon: 'RedEnvelopeOutlined',
+    //     shows: 1,
+    //     tabHidden: false,
+    //     tabFix: false,
+    //     keepAlive: false,
+    // },
     {
         name: '权限控制',
         path: '/permit',
@@ -279,15 +371,15 @@ const arr = [
         tabFix: false,
         keepAlive: false,
     },
-    {
-        name: '关于',
-        path: '/about',
-        icon: 'UserOutlined',
-        shows: 1,
-        tabHidden: false,
-        tabFix: true,
-        keepAlive: false,
-    },
+    // {
+    //     name: '关于',
+    //     path: '/about',
+    //     icon: 'UserOutlined',
+    //     shows: 1,
+    //     tabHidden: false,
+    //     tabFix: true,
+    //     keepAlive: false,
+    // },
     {
         name: '错误捕获',
         path: '/module/debug',
@@ -297,8 +389,8 @@ const arr = [
         tabFix: false,
         keepAlive: false,
     },
-]
-const defaultMenu = addUniqueId(arr, '_local') // 增加个标识符
+];
+const defaultMenu = addUniqueId(arr, '_local'); // 增加个标识符
 
 /**
  * 默认项目菜单
@@ -322,9 +414,6 @@ let defaultPrjMenu = [
         shows: 1,
         menus: defaultMenu.slice(-3),
     },
-]
-defaultPrjMenu = addUniqueId(defaultPrjMenu, '_local')
-export {
-    defaultMenu,
-    defaultPrjMenu,
-}
+];
+defaultPrjMenu = addUniqueId(defaultPrjMenu, '_local');
+export { defaultMenu, defaultPrjMenu };

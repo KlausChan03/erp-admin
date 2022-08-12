@@ -1,5 +1,5 @@
-import { isArray } from '@/packages/utils/utils'
-
+import { isArray } from '@/packages/utils/utils';
+var test = 'hello';
 const user = {
     namespaced: true,
     state: {
@@ -8,26 +8,26 @@ const user = {
     },
     getters: {
         roles: (state: any) => {
-            return state.roles
+            return state.roles;
         },
         userinfo: (state: any) => {
-            return state.userinfo
+            return state.userinfo;
         },
     },
     mutations: {
         updateRoles(state: any, arr: Array<any>) {
-            state.roles = arr
+            state.roles = arr;
         },
         updateUserinfo(state: any, data: any) {
-            state.userinfo = data
+            state.userinfo = data;
             if (isArray(data.roles)) {
-                state.roles = data.roles
+                state.roles = data.roles;
             } else {
-                state.roles = data.roles.split(',')
+                state.roles = data.roles.split(',');
             }
         },
     },
     actions: {},
-}
+};
 
-export default user
+export default user;

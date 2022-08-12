@@ -27,7 +27,7 @@ export default {
             return {
                 danger: true,
                 type: 'primary',
-            }
+            };
         },
     },
     okType: {
@@ -48,8 +48,7 @@ export default {
     },
     afterClose: {
         type: Function,
-        default: () => {
-        },
+        default: () => {},
     },
     confirmLoading: {
         type: Boolean,
@@ -67,4 +66,4 @@ export default {
         type: Boolean,
         default: false,
     },
-}
+};

@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 const userStore = defineStore({
     id: 'user',
@@ -7,8 +7,8 @@ const userStore = defineStore({
             userinfo: {
                 name: 'yxs',
             },
-        }
+        };
     },
-})
+});
 
-export default userStore
+export default userStore;

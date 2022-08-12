@@ -13,7 +13,7 @@ module.exports = {
     plugins: ['vue', '@typescript-eslint'],
     rules: {
         // 缩进 4 空格
-        "indent": [2, 4],
+        indent: [2, 4],
 
         // 禁止空格和 tab 的混合缩进
         'no-mixed-spaces-and-tabs': 1,
@@ -25,7 +25,7 @@ module.exports = {
         'no-extra-boolean-cast': 1,
 
         // 强制所有控制语句使用一致的括号风格
-        'curly': 1,
+        curly: 1,
 
         // 禁止使用多个空格c
         'no-multi-spaces': 1,
@@ -52,7 +52,7 @@ module.exports = {
         'no-multiple-empty-lines': 1,
 
         // 不检查后面是否有分号
-        'semi': 0,
+        semi: 2,
 
         // 要求操作符周围有空格
         'space-infix-ops': 1,
@@ -71,8 +71,8 @@ module.exports = {
 
         'global-require': 'off',
 
-        'vue/script-setup-uses-vars': 'off',  // 如果使用 script-setup 可開啟
+        'vue/script-setup-uses-vars': 'off', // 如果使用 script-setup 可開啟
 
-        'vue/component-definition-name-casing': 'off' // 驼峰命名
+        'vue/component-definition-name-casing': 'off', // 驼峰命名
     },
-}
+};
