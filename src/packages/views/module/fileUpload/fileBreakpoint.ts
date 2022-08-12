@@ -1,27 +1,25 @@
-import {FileItem} from './file.type'
+import { FileItem } from './file.type';
 import axios from 'axios';
 // @ts-ignore
-import _ from "lodash";
-import {randomId} from "@/packages/utils/utils";
+import _ from 'lodash';
+import { randomId } from '@/packages/utils/utils';
 
 interface optItem {
     chunkSize: number
 }
 
-
 class FileBreakpoint {
-
     protected chunkSize = 3 * 1024 * 1024; // 设置分片大小
     private chunksLength = 0;
     private dataChunks = [];
-    private allChunksUploadStatus: any[] = [] // 切片状态
+    private allChunksUploadStatus: any[] = []; // 切片状态
     private code = '1'; // 成功状态码
-    private timeout = 3 * 60 * 1000
-    private opt: any
-    private success: any
-    private error: any
-    private fileChunks: any
-    private uploadProcess: any
+    private timeout = 3 * 60 * 1000;
+    private opt: any;
+    private success: any;
+    private error: any;
+    private fileChunks: any;
+    private uploadProcess: any;
 
     constructor(opt?: optItem) {
         if (opt?.chunkSize) {
@@ -38,9 +36,9 @@ class FileBreakpoint {
      * 分割切片
      */
     makeChunks(file: FileItem) {
-        const fileChunks = {file, chunks: <Array<any>>[]};
+        const fileChunks = { file, chunks: <Array<any>>[] };
         if (file.size < this.chunkSize) {
-            fileChunks.chunks.push({start: 0, end: file.size});
+            fileChunks.chunks.push({ start: 0, end: file.size });
             return fileChunks;
         }
         if (file.size % this.chunkSize === 0) {
@@ -53,28 +51,25 @@ class FileBreakpoint {
             const start = fileChunks.chunks.length * this.chunkSize;
             const end = start + this.chunkSize >= file.size ? file.size : start + this.chunkSize;
             leftSize -= end - start;
-            fileChunks.chunks.push({start, end});
+            fileChunks.chunks.push({ start, end });
         }
         return fileChunks;
     }
 
-
     /**
      * 上传切片
      */
-    upLoadSliceFile() {
-
-    }
+    upLoadSliceFile() {}
 
     /**
      * 获取切片
      */
     getFileChunks(file: FileItem, success?: string, error?: string) {
-        const {size} = file;
+        const { size } = file;
         this.success = success;
         this.error = error;
         if (this.hasChunk(size)) {
-            this.fileChunks = this.makeChunks(file)
+            this.fileChunks = this.makeChunks(file);
             this.getFormDataChunks();
         } else {
             this.postFileAxios(file);
@@ -87,10 +82,14 @@ class FileBreakpoint {
     calUploadProcess() {
         let uploadedCount = 0;
         _.each(this.allChunksUploadStatus, (item: any) => {
-            if (item) {uploadedCount++;}
+            if (item) {
+                uploadedCount++;
+            }
         });
-        return Number(((uploadedCount * 100) / this.allChunksUploadStatus.length).toFixed(0).valueOf());
-    };
+        return Number(
+            ((uploadedCount * 100) / this.allChunksUploadStatus.length).toFixed(0).valueOf(),
+        );
+    }
 
     /**
      * 获取FormData格式化的切片
@@ -99,27 +98,30 @@ class FileBreakpoint {
         this.allChunksUploadStatus = _.fill(new Array(this.fileChunks.chunks.length), false);
         const formData = new FormData();
         this.fileChunks.chunks.forEach((chunk: any, index: number) => {
-            formData.append("index", index + "");
-            formData.append("chunk", this.fileChunks.file.slice(chunk.start, chunk.end));
-            formData.append("name", this.fileChunks.file.name);
-            formData.append("chunksLength", this.fileChunks.chunks.length + "");
-            formData.append("uid", randomId());
-            this.postChunksAxios(formData, index)
-        })
+            formData.append('index', index + '');
+            formData.append('chunk', this.fileChunks.file.slice(chunk.start, chunk.end));
+            formData.append('name', this.fileChunks.file.name);
+            formData.append('chunksLength', this.fileChunks.chunks.length + '');
+            formData.append('uid', randomId());
+            this.postChunksAxios(formData, index);
+        });
     }
 
     /**
      * 切片上传
      */
     postChunksAxios(formData: any, index: number) {
-        axios.post(this.opt?.url, formData, {
-            timeout: this.timeout,
-        })
+        axios
+            .post(this.opt?.url, formData, {
+                timeout: this.timeout,
+            })
             .then((res: any) => {
-                if (typeof res === "object" && res.data?.code === this.code) {
+                if (typeof res === 'object' && res.data?.code === this.code) {
                     this.allChunksUploadStatus[index] = true; // 更新标记为
                     this.uploadProcess = this.calUploadProcess(); // 更新上传百分比
-                    if (this.uploadProcess === 100) {this.success?.()}// 完成合并上传
+                    if (this.uploadProcess === 100) {
+                        this.success?.();
+                    } // 完成合并上传
                 }
             })
             .catch((err) => {
@@ -131,12 +133,13 @@ class FileBreakpoint {
      * 直接上传
      */
     postFileAxios(file: any) {
-        axios.post(this.opt?.url, file, {
-            timeout: this.timeout,
-        })
+        axios
+            .post(this.opt?.url, file, {
+                timeout: this.timeout,
+            })
             .then((res: any) => {
-                if (typeof res === "object" && res.data?.code === this.code) {
-                    this.success?.()
+                if (typeof res === 'object' && res.data?.code === this.code) {
+                    this.success?.();
                 }
             })
             .catch((err) => {

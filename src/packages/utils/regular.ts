@@ -5,20 +5,22 @@
 const Regular = {
     rules: {
         email(str: any) {
-            return /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(str)
+            return /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(str);
         },
         phone(str: any) {
-            /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/.test(str)
+            ;/^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/.test(
+                str,
+            );
         },
     },
-    addRule: function(type: string, fn: Function) {
+    addRule: function (type: string, fn: Function) {
         // @ts-ignore
-        this.rules[type] = fn
+        this.rules[type] = fn;
     },
-    check: function(type: string, str: any) {
+    check: function (type: string, str: any) {
         // @ts-ignore
-        return this.rules[type] ? this.rules[type](str) : false
+        return this.rules[type] ? this.rules[type](str) : false;
     },
-}
+};
 
-export default Regular
+export default Regular;
