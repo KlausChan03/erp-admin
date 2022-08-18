@@ -1,32 +1,27 @@
-import {post} from '@/packages/http/request'
+import { post } from '@/packages/http/request';
 
-const prefix = '/user'
+const prefix = '/user';
 
 /**
  * 登录
  */
 const apiLogin = (params?: object) => {
-    return post(`${prefix}/login`, params, {notifyError: true, relink: true})
-}
+    console.log('hhhkkk', params);
+    return post(`${prefix}/login`, params, { notifyError: true, relink: true });
+};
 
 /**
  * 退出
  */
 const apiLogout = () => {
-    return post(`${prefix}/logout`)
-}
-
+    return post(`${prefix}/logout`);
+};
 
 /**
  * 获取用户信息
  */
 const apiUserUserinfo = () => {
-    return post(`${prefix}/userinfo`)
-}
+    return post(`${prefix}/userinfo`);
+};
 
-
-export {
-    apiLogin,
-    apiLogout,
-    apiUserUserinfo,
-}
+export { apiLogin, apiLogout, apiUserUserinfo };

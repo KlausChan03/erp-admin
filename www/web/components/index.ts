@@ -7,7 +7,4 @@ const setupGlobComponents = (app: App) => {
     app.component('Advertising', Advertising)
 }
 
-
-export {
-    setupGlobComponents,
-}
+export { setupGlobComponents }

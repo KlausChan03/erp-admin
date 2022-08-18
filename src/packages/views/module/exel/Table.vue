@@ -1,7 +1,13 @@
 <template id="root">
-    <a-table :columns="columns" size="middle" :bordered="true" :data-source="data" :locale="{emptyText:'暂无数据'}"
-             :scroll="{y: windowHeight}" class="ant-table-striped"
-             :rowClassName="(record, index) => (index % 2 === 1 ? 'table-striped' : null)"
+    <a-table
+        :columns="columns"
+        size="middle"
+        :bordered="true"
+        :data-source="data"
+        :locale="{ emptyText: '暂无数据' }"
+        :scroll="{ y: windowHeight }"
+        class="ant-table-striped"
+        :rowClassName="(record, index) => (index % 2 === 1 ? 'table-striped' : null)"
     >
     </a-table>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <bag-view>
         <div class="qrcode-container">
-            <div class="qrcode"><img src="@/packages/assets/image/zfb.jpg" alt=""></div>
+            <div class="qrcode"><img src="@/packages/assets/image/zfb.jpg" alt="" /></div>
         </div>
     </bag-view>
 </template>
@@ -21,4 +21,3 @@
     }
 }
 </style>
-

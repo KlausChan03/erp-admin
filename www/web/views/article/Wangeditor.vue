@@ -1,10 +1,10 @@
 <template>
     <div id="editor">
-        <md-editor v-if="detailData" v-model="detailData.content" previewOnly/>
+        <md-editor v-if="detailData" v-model="detailData.content" previewOnly />
     </div>
 </template>
 <script lang="ts">
-import {defineComponent, onMounted} from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
 
@@ -12,15 +12,15 @@ export default defineComponent({
     props: {
         detailData: {
             type: Object,
-            default: {}
-        }
+            default: {},
+        },
     },
     components: {
-        MdEditor
+        MdEditor,
     },
     setup() {
         return {
-            content: '# 哎哎哎'
+            content: '# 哎哎哎',
         }
     },
 })

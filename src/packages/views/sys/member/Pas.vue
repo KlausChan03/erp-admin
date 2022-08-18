@@ -1,6 +1,12 @@
 <template>
     <div class="add">
-        <a-form ref="formRef" :model="formState" :rules="rules" :label-col="{span:6}" :wrapper-col="{wrapperCol:15}">
+        <a-form
+            ref="formRef"
+            :model="formState"
+            :rules="rules"
+            :label-col="{ span: 6 }"
+            :wrapper-col="{ wrapperCol: 15 }"
+        >
             <a-row>
                 <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
                     <a-form-item label="原密码" name="rawpassword">
@@ -11,13 +17,15 @@
                             :type="inputType ? 'password' : 'text'"
                         >
                             <template #enterButton>
-                                <EyeOutlined/>
+                                <EyeOutlined />
                             </template>
                         </a-input-search>
-
                     </a-form-item>
                     <a-form-item label="新密码" name="password">
-                        <a-input v-model:value="formState.password" placeholder="输入3~20位新密码"/>
+                        <a-input
+                            v-model:value="formState.password"
+                            placeholder="输入3~20位新密码"
+                        />
                     </a-form-item>
                 </a-col>
             </a-row>
@@ -25,10 +33,9 @@
     </div>
 </template>
 <script lang="ts">
-import {defineComponent, reactive, ref, toRaw} from 'vue'
-import {apiGetPas, apiUpdatePas} from '@/packages/service/member'
-import {useStore} from 'vuex'
-
+import { defineComponent, reactive, ref, toRaw } from 'vue'
+import { apiGetPas, apiUpdatePas } from '@/packages/service/member'
+import { useStore } from 'vuex'
 
 export default defineComponent({
     props: {
@@ -41,7 +48,7 @@ export default defineComponent({
             type: [Object],
         },
     },
-    setup(props, {emit}) {
+    setup(props, { emit }) {
         const formRef = ref()
         const visible = ref(false)
         const inputType = ref(true)
@@ -51,15 +58,17 @@ export default defineComponent({
             id: props.id,
         })
         const rules = {
-            password: [
-                {required: true, message: '请输入3~20位新密码', trigger: 'blur'},
-            ],
+            password: [{ required: true, message: '请输入3~20位新密码', trigger: 'blur' }],
         }
         const onSubmit = async () => {
-            return formRef.value.validate()
+            return formRef.value
+                .validate()
                 .then(() => {
                     const formData: any = toRaw(formState)
-                    apiUpdatePas({...formData, username: props.record.username}, {notify: true}).then(() => {
+                    apiUpdatePas(
+                        { ...formData, username: props.record.username },
+                        { notify: true },
+                    ).then(() => {
                         return Promise.resolve()
                     })
                 })
@@ -69,7 +78,7 @@ export default defineComponent({
         }
         const handleRawPass = () => {
             inputType.value = false
-            apiGetPas({password: props.record.password}).then((data: any) => {
+            apiGetPas({ password: props.record.password }).then((data: any) => {
                 if (data) {
                     formState.rawpassword = JSON.parse(data).password
                 }

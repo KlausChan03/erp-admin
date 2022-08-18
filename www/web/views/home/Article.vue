@@ -1,39 +1,63 @@
 <template>
-    <web-card class="hot" title="最近更新" :more="[{name:'网络工具'},{name:'媒体工具'},{name:'应用软件'}]">
+    <web-card
+        class="hot"
+        title="最近更新"
+        :more="[{ name: '网络工具' }, { name: '媒体工具' }, { name: '应用软件' }]"
+    >
         <template v-slot:body>
             <el-row>
                 <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
                     <article class="article">
-                        <template v-for="(item,idx) in articles" :key="item">
+                        <template v-for="(item, idx) in articles" :key="item">
                             <div class="article-item mod1" v-if="idx !== 3">
                                 <div class="article-item-body">
                                     <div class="article-item-body-left">
-                                        <router-link to="/article/1"><img :src="item.img" alt=""></router-link>
+                                        <router-link to="/article/1"
+                                            ><img :src="item.img" alt=""
+                                        /></router-link>
                                     </div>
                                     <div class="article-item-body-right">
                                         <h3>{{ item.title }}</h3>
                                         <div class="intro">{{ item.text }}</div>
                                         <div class="action">
                                             <div class="action-tag hidden-xs-only">
-                                                <it-tag :class="todo.class" v-for="todo in item.tag" :type="todo.type"
-                                                        filled
-                                                        style="margin-right: 5px"
-                                                >{{ todo.name }}
+                                                <it-tag
+                                                    :class="todo.class"
+                                                    v-for="todo in item.tag"
+                                                    :type="todo.type"
+                                                    filled
+                                                    style="margin-right: 5px"
+                                                    >{{ todo.name }}
                                                 </it-tag>
                                             </div>
-                                            <div class="action-time"><span>{{ item.time }}</span></div>
+                                            <div class="action-time">
+                                                <span>{{ item.time }}</span>
+                                            </div>
                                             <div class="action-user">
-                                                <div class="praise hidden-xs-only hidden-sm-and-down">
-                                                    <it-icon color="#546173" name="sentiment_satisfied" outlined />
-                                                    {{ item.praise }} <span class="hidden-lg-only">点赞</span>
+                                                <div
+                                                    class="praise hidden-xs-only hidden-sm-and-down"
+                                                >
+                                                    <it-icon
+                                                        color="#546173"
+                                                        name="sentiment_satisfied"
+                                                        outlined
+                                                    />
+                                                    {{ item.praise }}
+                                                    <span class="hidden-lg-only">点赞</span>
                                                 </div>
                                                 <div class="comment hidden-xs-only">
                                                     <it-icon color="#546173" name="draw" outlined />
-                                                    {{ item.comment }} <span class="hidden-lg-only">评论</span>
+                                                    {{ item.comment }}
+                                                    <span class="hidden-lg-only">评论</span>
                                                 </div>
                                                 <div class="preview hidden-xs-only">
-                                                    <it-icon color="#546173" name="cruelty_free" outlined />
-                                                    {{ item.preview }} <span class="hidden-lg-only">浏览</span>
+                                                    <it-icon
+                                                        color="#546173"
+                                                        name="cruelty_free"
+                                                        outlined
+                                                    />
+                                                    {{ item.preview }}
+                                                    <span class="hidden-lg-only">浏览</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -47,35 +71,53 @@
                                     </div>
                                     <div class="article-item-body-center">
                                         <div class="imgs">
-                                            <a><img :src="item.img" alt=""></a>
-                                            <a><img :src="item.img" alt=""></a>
-                                            <a><img :src="item.img" alt=""></a>
-                                            <a><img :src="item.img" alt=""></a>
+                                            <a><img :src="item.img" alt="" /></a>
+                                            <a><img :src="item.img" alt="" /></a>
+                                            <a><img :src="item.img" alt="" /></a>
+                                            <a><img :src="item.img" alt="" /></a>
                                         </div>
                                     </div>
                                     <div class="article-item-body-right">
                                         <div class="intro">{{ item.text }}</div>
                                         <div class="action">
                                             <div class="action-tag hidden-xs-only">
-                                                <it-tag :class="todo.class" v-for="todo in item.tag" :type="todo.type"
-                                                        filled
-                                                        style="margin-right: 5px"
-                                                >{{ todo.name }}
+                                                <it-tag
+                                                    :class="todo.class"
+                                                    v-for="todo in item.tag"
+                                                    :type="todo.type"
+                                                    filled
+                                                    style="margin-right: 5px"
+                                                    >{{ todo.name }}
                                                 </it-tag>
                                             </div>
-                                            <div class="action-time"><span>{{ item.time }}</span></div>
+                                            <div class="action-time">
+                                                <span>{{ item.time }}</span>
+                                            </div>
                                             <div class="action-user">
-                                                <div class="praise hidden-xs-only hidden-sm-and-down">
-                                                    <it-icon color="#546173" name="sentiment_satisfied" outlined />
-                                                    {{ item.praise }} <span class="hidden-lg-only">点赞</span>
+                                                <div
+                                                    class="praise hidden-xs-only hidden-sm-and-down"
+                                                >
+                                                    <it-icon
+                                                        color="#546173"
+                                                        name="sentiment_satisfied"
+                                                        outlined
+                                                    />
+                                                    {{ item.praise }}
+                                                    <span class="hidden-lg-only">点赞</span>
                                                 </div>
                                                 <div class="comment hidden-xs-only">
                                                     <it-icon color="#546173" name="draw" outlined />
-                                                    {{ item.comment }} <span class="hidden-lg-only">评论</span>
+                                                    {{ item.comment }}
+                                                    <span class="hidden-lg-only">评论</span>
                                                 </div>
                                                 <div class="preview hidden-xs-only">
-                                                    <it-icon color="#546173" name="cruelty_free" outlined />
-                                                    {{ item.preview }} <span class="hidden-lg-only">浏览</span>
+                                                    <it-icon
+                                                        color="#546173"
+                                                        name="cruelty_free"
+                                                        outlined
+                                                    />
+                                                    {{ item.preview }}
+                                                    <span class="hidden-lg-only">浏览</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,11 +147,15 @@ const articles = ref([
         comment: 344,
         praise: 688,
         time: '2022年02月13日',
-        tag: [{ name: '你好呀', type: 'primary' }, {
-            name: '承蒙遇见',
-            type: 'success',
-            class: 'hidden-sm-and-down',
-        }, { name: '永远年轻', type: 'warning', class: 'hidden-sm-and-down' }],
+        tag: [
+            { name: '你好呀', type: 'primary' },
+            {
+                name: '承蒙遇见',
+                type: 'success',
+                class: 'hidden-sm-and-down',
+            },
+            { name: '永远年轻', type: 'warning', class: 'hidden-sm-and-down' },
+        ],
     },
     {
         img: banner2,
@@ -119,7 +165,10 @@ const articles = ref([
         comment: 344,
         praise: 388,
         time: '2022年02月13日',
-        tag: [{ name: '你好呀', type: 'primary' }, { name: '永远年轻', type: 'warning', class: 'hidden-sm-and-down' }],
+        tag: [
+            { name: '你好呀', type: 'primary' },
+            { name: '永远年轻', type: 'warning', class: 'hidden-sm-and-down' },
+        ],
     },
     {
         img: banner3,
@@ -129,7 +178,10 @@ const articles = ref([
         comment: 678,
         praise: 6288,
         time: '2022年02月13日',
-        tag: [{ name: '承蒙遇见', type: 'success' }, { name: '永远年轻', type: 'warning', class: 'hidden-sm-and-down' }],
+        tag: [
+            { name: '承蒙遇见', type: 'success' },
+            { name: '永远年轻', type: 'warning', class: 'hidden-sm-and-down' },
+        ],
     },
     {
         img: banner4,
@@ -207,7 +259,6 @@ const articles = ref([
             padding-bottom: 0;
             border-bottom: none;
         }
-
 
         &-body {
             display: flex;
@@ -291,10 +342,10 @@ const articles = ref([
 
     .mod1 {
         .article-item-body {
-            &-left{
+            &-left {
                 height: 120px;
             }
-            &-right{
+            &-right {
                 .action {
                     position: absolute;
                     bottom: 0;
@@ -313,12 +364,12 @@ const articles = ref([
                 .imgs {
                     display: flex;
                     justify-content: space-between;
-                    >a{
+                    > a {
                         width: 24%;
                     }
                 }
             }
-            &-right{
+            &-right {
                 .action {
                     margin-top: 10px;
                 }

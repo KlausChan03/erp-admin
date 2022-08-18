@@ -1,9 +1,7 @@
 const app = {
     namespaced: true,
     state: {
-        column: [
-            {name: '1'}
-        ]
+        column: [{ name: '1' }],
     },
     getters: {
         column: (state: any) => {
@@ -12,10 +10,9 @@ const app = {
     },
     mutations: {
         updateColumn(state: any, data: any) {
-            state.column = data
-        }
-    }
-
-}
+            state.column = data;
+        },
+    },
+};
 
 export default app;

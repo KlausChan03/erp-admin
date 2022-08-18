@@ -1,34 +1,37 @@
 <template>
-    <div :class="['layout-header_scroller',tabStyleClassName]">
+    <div :class="['layout-header_scroller', tabStyleClassName]">
         <div class="tab-action tab-action-left" @click="handleScrollBar(false)">
-            <CaretLeftFilled class="icon-svg"/>
+            <CaretLeftFilled class="icon-svg" />
         </div>
         <div class="tab-container" ref="tabContainer">
-            <div class="app-process_item"
-                 v-for="(item,index) in processList"
-                 :key="index"
-                 :class="{active:item.active}"
-                 @click="handleClickCutTap(item)"
-                 @contextmenu.stop.prevent="handleContextMenu($event, item)"
+            <div
+                class="app-process_item"
+                v-for="(item, index) in processList"
+                :key="index"
+                :class="{ active: item.active }"
+                @click="handleClickCutTap(item)"
+                @contextmenu.stop.prevent="handleContextMenu($event, item)"
             >
                 <span class="title">{{ item.name }}</span>
-                <CloseOutlined class="icon-svg" v-if="!item.tabFix && processList.length !== 1"
-                               @click.stop="handleCloseCurrent(item)"
+                <CloseOutlined
+                    class="icon-svg"
+                    v-if="!item.tabFix && processList.length !== 1"
+                    @click.stop="handleCloseCurrent(item)"
                 />
             </div>
         </div>
         <div class="tab-action tab-action-right" @click="handleScrollBar(true)">
-            <CaretRightFilled class="icon-svg"/>
+            <CaretRightFilled class="icon-svg" />
         </div>
     </div>
-    <Contextmenu ref="contextmenu"/>
+    <Contextmenu ref="contextmenu" />
 </template>
 <script lang="ts">
-import {computed, defineComponent, ref} from 'vue'
-import {useStore} from 'vuex'
-import {useRouter} from 'vue-router'
-import {last} from '@/packages/utils/lodash'
-import {themeHook} from '@/packages/hook'
+import { computed, defineComponent, ref } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+import { last } from '@/packages/utils/lodash'
+import { themeHook } from '@/packages/hook'
 import Contextmenu from './Contextmenu.vue'
 
 export default defineComponent({
@@ -39,9 +42,11 @@ export default defineComponent({
         const store = useStore()
         const router = useRouter()
         const contextmenu: any = ref(null)
-        const processList = computed(() => store.state.app.processList.filter((e: any) => e.tabHidden === false)) // 数据列表 // 使用computed 才触发视图更新
+        const processList = computed(() =>
+            store.state.app.processList.filter((e: any) => e.tabHidden === false),
+        ) // 数据列表 // 使用computed 才触发视图更新
         const tabContainer = ref<HTMLAreaElement | any>(null)
-        const {tabStyleClassName} = themeHook()
+        const { tabStyleClassName } = themeHook()
 
         function scrollBar(left: number) {
             tabContainer.value.scrollTo({
@@ -62,7 +67,6 @@ export default defineComponent({
             scrollBar(tabContainer.value.scrollLeft + (t ? 100 : -100))
         }
 
-
         const toPath = (path?: string) => {
             if (path) {
                 router.push(path)
@@ -81,7 +85,6 @@ export default defineComponent({
             toPath()
         }
 
-
         const handleContextMenu = (e: any, item: any) => {
             e.preventDefault() // 阻止默认事件
             if (item.tabFix || processList.value.length === 1) {
@@ -96,21 +99,27 @@ export default defineComponent({
 
             contextmenu.value.items = [
                 {
-                    name: '关闭当前', data: item, callback: (res: any) => {
+                    name: '关闭当前',
+                    data: item,
+                    callback: (res: any) => {
                         handleCloseCurrent(res.data)
                     },
                 },
                 {
-                    name: '关闭其他', data: item, callback: () => {
+                    name: '关闭其他',
+                    data: item,
+                    callback: () => {
                         const arr = processList.value.filter((e: any) => {
-                            return (e.id == item.id || e.path == '/') || e.tabFix
+                            return e.id == item.id || e.path == '/' || e.tabFix
                         })
                         store.commit('app/setProcessList', arr)
                         toPath()
                     },
                 },
                 {
-                    name: '关闭所有', data: item, callback: () => {
+                    name: '关闭所有',
+                    data: item,
+                    callback: () => {
                         store.commit('app/resetProcessList')
                         toPath(store.getters['app/processList'][0].path)
                     },
@@ -161,7 +170,7 @@ export default defineComponent({
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all .3s;
+        transition: all 0.3s;
 
         &:hover {
             background-color: #ffffff;
@@ -285,7 +294,7 @@ export default defineComponent({
             &:before {
                 width: 8px;
                 height: 8px;
-                transition: background .3s;
+                transition: background 0.3s;
                 border-radius: 50%;
                 display: block;
                 border: none;
@@ -295,5 +304,4 @@ export default defineComponent({
         }
     }
 }
-
 </style>

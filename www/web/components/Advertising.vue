@@ -1,8 +1,8 @@
 <template>
-    <div class="advertising" :style="{height}">
+    <div class="advertising" :style="{ height }">
         <div class="advertising-body">
             <a href="">
-                <img :src="images" alt="">
+                <img :src="images" alt="" />
             </a>
         </div>
     </div>

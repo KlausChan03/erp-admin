@@ -4,7 +4,7 @@ const columns = [
         dataIndex: 'name',
         key: 'name',
         align: 'center',
-        ellipsis: true
+        ellipsis: true,
     },
     {
         title: '上级名称',
@@ -12,7 +12,7 @@ const columns = [
         key: 'pname',
         ellipsis: true,
         align: 'center',
-        slots: {customRender: 'pname'}
+        slots: { customRender: 'pname' },
     },
     {
         title: '上级ID',
@@ -21,7 +21,7 @@ const columns = [
         ellipsis: true,
         align: 'center',
         width: 180,
-        slots: {customRender: 'pid'}
+        slots: { customRender: 'pid' },
     },
     {
         title: '排序',
@@ -30,7 +30,7 @@ const columns = [
         ellipsis: true,
         align: 'center',
         width: 80,
-        slots: {customRender: 'order'}
+        slots: { customRender: 'order' },
     },
     {
         title: '创建时间',
@@ -53,8 +53,8 @@ const columns = [
         key: 'action',
         align: 'center',
         width: 200,
-        slots: {customRender: 'action'},
-    }
+        slots: { customRender: 'action' },
+    },
 ];
 
 export default columns;

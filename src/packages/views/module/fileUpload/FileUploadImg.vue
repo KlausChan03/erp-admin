@@ -8,48 +8,48 @@
                 @preview="handlePreview"
             >
                 <div v-if="fileList.length < 8">
-                    <plus-outlined/>
+                    <plus-outlined />
                     <div class="ant-upload-text">上传</div>
                 </div>
             </a-upload>
             <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
-                <img alt="example" style="width: 100%" :src="previewImage"/>
+                <img alt="example" style="width: 100%" :src="previewImage" />
             </a-modal>
         </div>
     </bag-view>
 </template>
 <script lang="ts">
-import {defineComponent, ref} from 'vue';
+import { defineComponent, ref } from 'vue'
 function getBase64(file: File) {
     return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-    });
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = () => resolve(reader.result)
+        reader.onerror = (error) => reject(error)
+    })
 }
 
 interface FileItem {
-    uid: string;
-    name?: string;
-    status?: string;
-    response?: string;
-    percent?: number;
-    url?: string;
-    preview?: string;
-    originFileObj?: any;
+    uid: string
+    name?: string
+    status?: string
+    response?: string
+    percent?: number
+    url?: string
+    preview?: string
+    originFileObj?: any
 }
 
 interface FileInfo {
-    file: FileItem;
-    fileList: FileItem[];
+    file: FileItem
+    fileList: FileItem[]
 }
 
 export default defineComponent({
-    name:'module-fileUploadImg',
+    name: 'module-fileUploadImg',
     setup() {
-        const previewVisible = ref<boolean>(false);
-        const previewImage = ref<string | undefined>('');
+        const previewVisible = ref<boolean>(false)
+        const previewImage = ref<string | undefined>('')
 
         const fileList = ref<FileItem[]>([
             {
@@ -81,21 +81,21 @@ export default defineComponent({
                 name: '无效链接',
                 status: 'error',
             },
-        ]);
+        ])
 
         const handleCancel = () => {
-            previewVisible.value = false;
-        };
+            previewVisible.value = false
+        }
         const handlePreview = async (file: FileItem) => {
             if (!file.url && !file.preview) {
-                file.preview = (await getBase64(file.originFileObj)) as string;
+                file.preview = (await getBase64(file.originFileObj)) as string
             }
-            previewImage.value = file.url || file.preview;
-            previewVisible.value = true;
-        };
-        const handleChange = ({fileList: newFileList}: FileInfo) => {
-            fileList.value = newFileList;
-        };
+            previewImage.value = file.url || file.preview
+            previewVisible.value = true
+        }
+        const handleChange = ({ fileList: newFileList }: FileInfo) => {
+            fileList.value = newFileList
+        }
 
         return {
             previewVisible,
@@ -104,9 +104,9 @@ export default defineComponent({
             handleCancel,
             handlePreview,
             handleChange,
-        };
+        }
     },
-});
+})
 </script>
 <style>
 /* you can make up upload button and sample style by using stylesheets */

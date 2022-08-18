@@ -1,21 +1,35 @@
 <template>
     <div class="section">
         <aside class="banner">
-            <el-carousel trigger="click" :autoplay="true" :interval="5000" arrow="always" height="340px">
+            <el-carousel
+                trigger="click"
+                :autoplay="true"
+                :interval="5000"
+                arrow="always"
+                height="340px"
+            >
                 <el-carousel-item v-for="item in banners" :key="item">
                     <div class="banner-item">
-                        <img class="banner-item-img" :src="item.img" alt="">
+                        <img class="banner-item-img" :src="item.img" alt="" />
                         <div class="banner-item-des">{{ item.text }}</div>
                     </div>
                 </el-carousel-item>
             </el-carousel>
         </aside>
-        <web-card class="hot" title="热门图集" :more="[{name:'查看更多'}]">
+        <web-card class="hot" title="热门图集" :more="[{ name: '查看更多' }]">
             <template v-slot:body>
                 <el-row :gutter="15">
-                    <el-col v-for="item in banners" :key="item" :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+                    <el-col
+                        v-for="item in banners"
+                        :key="item"
+                        :xs="24"
+                        :sm="12"
+                        :md="8"
+                        :lg="6"
+                        :xl="6"
+                    >
                         <a class="hot-item" href="">
-                            <div class="hot-item-inbox"><img :src="item.img" alt=""></div>
+                            <div class="hot-item-inbox"><img :src="item.img" alt="" /></div>
                             <h5>{{ item.text }}</h5>
                         </a>
                     </el-col>
@@ -34,12 +48,11 @@ import banner4 from '@www/web/assets/image/banner-4.jpg'
 import Article from './Article.vue'
 
 const banners = ref([
-        { img: banner1, text: '不负光阴就是最好的努力，而努力就是最好的自己' },
-        { img: banner2, text: '洁身自好，绝对理智，永远温柔，永远清醒' },
-        { img: banner3, text: '别让平凡的生活，耗尽你所有的向往' },
-        { img: banner4, text: '没有人可以回到过去，但谁都可以从现在开始' },
-    ],
-)
+    { img: banner1, text: '不负光阴就是最好的努力，而努力就是最好的自己' },
+    { img: banner2, text: '洁身自好，绝对理智，永远温柔，永远清醒' },
+    { img: banner3, text: '别让平凡的生活，耗尽你所有的向往' },
+    { img: banner4, text: '没有人可以回到过去，但谁都可以从现在开始' },
+])
 </script>
 <style lang="less" scoped>
 .section {

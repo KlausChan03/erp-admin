@@ -1,7 +1,10 @@
 <template>
     <div class="author">
-        <div class="author-head"
-             style="background-image:url('https://www.vipbic.com/uploads/20220327/9816c6c457fb9e0bee39bd59cd625c84.jpg');"
+        <div
+            class="author-head"
+            style="
+                background-image: url('https://www.vipbic.com/uploads/20220327/9816c6c457fb9e0bee39bd59cd625c84.jpg');
+            "
         ></div>
         <div class="author-avatar">
             <a href="">羊</a>
@@ -27,7 +30,7 @@
     </div>
 </template>
 <script>
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({})
 </script>
@@ -35,7 +38,7 @@ export default defineComponent({})
 .author {
     background-color: var(--yh-color-white);
     border-radius: var(--yh-border-radius-base);
-    padding-bottom:  var(--yh-padding-base);
+    padding-bottom: var(--yh-padding-base);
     &-head {
         background-position: 0 50%;
         background-size: 100% auto;
@@ -43,7 +46,7 @@ export default defineComponent({})
         border-radius: 4px 4px 0 0;
         height: 100px;
         width: 100%;
-        transition: all .3s;
+        transition: all 0.3s;
     }
 
     &-avatar {
@@ -64,7 +67,7 @@ export default defineComponent({})
             font-size: 28px;
             color: #ffffff;
             overflow: hidden;
-            transition: all .3s;
+            transition: all 0.3s;
         }
     }
 
@@ -87,17 +90,17 @@ export default defineComponent({})
     &-mess {
         display: flex;
         justify-content: space-around;
-        .item{
+        .item {
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-items: center;
             min-width: 100px;
-            h6{
+            h6 {
                 color: #777;
                 margin-bottom: 5px;
             }
-            p{
+            p {
                 font-weight: bold;
             }
         }

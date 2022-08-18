@@ -1,10 +1,16 @@
 <template>
     <div class="add">
-        <a-form ref="formRef" :model="formState" :rules="rules" :label-col="{span:6}" :wrapper-col="{wrapperCol:15}">
+        <a-form
+            ref="formRef"
+            :model="formState"
+            :rules="rules"
+            :label-col="{ span: 6 }"
+            :wrapper-col="{ wrapperCol: 15 }"
+        >
             <a-row>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="名称" name="name">
-                        <a-input v-model:value="formState.name" placeholder="输入菜单名称"/>
+                        <a-input v-model:value="formState.name" placeholder="输入菜单名称" />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
@@ -14,12 +20,17 @@
                             style="width: 100%"
                             :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
                             :tree-data="treeData"
-                            :replace-fields="{children:'children', key:'id', value: 'id', title: 'name'}"
+                            :replace-fields="{
+                                children: 'children',
+                                key: 'id',
+                                value: 'id',
+                                title: 'name',
+                            }"
                             placeholder="选择父级节点，不选择为一级菜单"
                             allow-clear
                             tree-default-expand-all
                         >
-                            <template #title="{ key, value,title }">
+                            <template #title="{ key, value, title }">
                                 <span>{{ title }}</span>
                             </template>
                         </a-tree-select>
@@ -27,7 +38,7 @@
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="排序" name="order">
-                        <a-input v-model:value="formState.order" placeholder="输入排序号"/>
+                        <a-input v-model:value="formState.order" placeholder="输入排序号" />
                     </a-form-item>
                 </a-col>
             </a-row>
@@ -35,48 +46,45 @@
     </div>
 </template>
 <script lang="ts">
-import {defineComponent, reactive, ref, toRaw, UnwrapRef} from 'vue';
-import {ValidateErrorEntity} from 'ant-design-vue/es/form/interface';
-import {apiCreate} from '@/packages/service/branch'
-import {toTree} from '@/packages/utils/utils'
+import { defineComponent, reactive, ref, toRaw, UnwrapRef } from 'vue'
+import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface'
+import { apiCreate } from '@/packages/service/branch'
+import { toTree } from '@/packages/utils/utils'
 
 interface FormState {
-    name: String;
-    pid?: String | Number,
-    order?: String | Number,
+    name: String
+    pid?: String | Number
+    order?: String | Number
 }
 
 export default defineComponent({
     props: {
         treeData: {
             type: Array,
-        }
+        },
     },
-    setup(props, {emit}) {
-
-        const formRef = ref();
-        const treeData = ref();
+    setup(props, { emit }) {
+        const formRef = ref()
+        const treeData = ref()
         const formState: UnwrapRef<FormState> = reactive({
             name: '',
             pid: '',
-            order: ''
-        });
+            order: '',
+        })
         const rules = {
-            name: [
-                {required: true, message: '名称为必填项', trigger: 'blur'}
-            ]
-        };
+            name: [{ required: true, message: '名称为必填项', trigger: 'blur' }],
+        }
 
-        treeData.value = toTree(props.treeData || []);
+        treeData.value = toTree(props.treeData || [])
 
         return {
             formState,
             rules,
             formRef,
-            treeData
-        };
+            treeData,
+        }
     },
-});
+})
 </script>
 <style lang="less" scoped>
 .item-icons {

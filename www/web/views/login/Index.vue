@@ -3,9 +3,13 @@
         <div class="sign-content">
             <div class="tab">
                 <ul>
-                    <li @click="form.active = item.name" :class="form.activeClass(item)" v-for="item in form.tabs"
+                    <li
+                        @click="form.active = item.name"
+                        :class="form.activeClass(item)"
+                        v-for="item in form.tabs"
                         :key="item"
-                    >{{ item.name }}
+                    >
+                        {{ item.name }}
                     </li>
                 </ul>
             </div>
@@ -16,51 +20,67 @@
                     </div>
                     <div class="line-show"></div>
                     <div class="phone-input">
-                        <input :class="form.usernameClass" @blur="form.handleBlurUsername" v-model="form.username"
-                               type="text" placeholder="手机号"
-                        >
+                        <input
+                            :class="form.usernameClass"
+                            @blur="form.handleBlurUsername"
+                            v-model="form.username"
+                            type="text"
+                            placeholder="手机号"
+                        />
                     </div>
                 </div>
                 <div class="phone-group">
                     <div class="phone-input">
-                        <input :class="form.captchaClass" @blur="form.handleBlurCaptcha" v-model="form.password"
-                               type="text"
-                               placeholder="输入短信6位验证码"
-                        >
+                        <input
+                            :class="form.captchaClass"
+                            @blur="form.handleBlurCaptcha"
+                            v-model="form.password"
+                            type="text"
+                            placeholder="输入短信6位验证码"
+                        />
                     </div>
-                    <div class="msg-btn">
-                        获取短信验证码
-                    </div>
+                    <div class="msg-btn">获取短信验证码</div>
                 </div>
-                <it-button @click="form.register" style="margin-top: 20px;padding-top: 10px;padding-bottom: 10px"
-                           type="primary" block
-                >注册/登录
+                <it-button
+                    @click="form.register"
+                    style="margin-top: 20px; padding-top: 10px; padding-bottom: 10px"
+                    type="primary"
+                    block
+                    >注册/登录
                 </it-button>
             </div>
             <div class="tab-content" v-if="form.active === form.tabs[1].name">
                 <div class="phone-group">
                     <div class="phone-input">
-                        <input :class="form.usernameClass" @blur="form.handleBlurUsername" v-model="form.username"
-                               type="text" placeholder="手机号"
-                        >
+                        <input
+                            :class="form.usernameClass"
+                            @blur="form.handleBlurUsername"
+                            v-model="form.username"
+                            type="text"
+                            placeholder="手机号"
+                        />
                     </div>
                 </div>
                 <div class="phone-group">
                     <div class="phone-input">
-                        <input :class="form.passwordClass" @blur="form.handleBlurPassword" v-model="form.password"
-                               type="password"
-                               placeholder="输入密码"
-                        >
+                        <input
+                            :class="form.passwordClass"
+                            @blur="form.handleBlurPassword"
+                            v-model="form.password"
+                            type="password"
+                            placeholder="输入密码"
+                        />
                     </div>
                 </div>
-                <it-button @click="form.submit" style="margin-top: 20px;padding-top: 10px;padding-bottom: 10px"
-                           type="primary" block
-                >登录
+                <it-button
+                    @click="form.submit"
+                    style="margin-top: 20px; padding-top: 10px; padding-bottom: 10px"
+                    type="primary"
+                    block
+                    >登录
                 </it-button>
             </div>
-            <div class="tab-tip">
-                未注册手机验证后自动登录，注册即代表同意
-            </div>
+            <div class="tab-tip">未注册手机验证后自动登录，注册即代表同意</div>
             <div class="sign-social">
                 <div class="social-title">社交帐号登录</div>
                 <div class="social-group">
@@ -73,18 +93,18 @@
     </div>
 </template>
 <script lang="ts">
-import {defineComponent, reactive} from 'vue'
+import { defineComponent, reactive } from 'vue'
 
 export default defineComponent({
     setup() {
         const form = reactive({
-            tabs: [{name: '免密码登录'}, {name: '密码登录'}],
+            tabs: [{ name: '免密码登录' }, { name: '密码登录' }],
             active: '免密码登录',
             usernameClass: '',
             passwordClass: '',
             captchaClass: '',
             activeClass: (item: any) => {
-                return item.name === form.active ? 'active' : null;
+                return item.name === form.active ? 'active' : null
             },
             username: '',
             password: '',
@@ -104,17 +124,13 @@ export default defineComponent({
                     form.passwordClass = 'error-mask'
                 }
             },
-            submit: () => {
-
-            },
-            register: () => {
-
-            }
+            submit: () => {},
+            register: () => {},
         })
         return {
-            form
+            form,
         }
-    }
+    },
 })
 </script>
 <style lang="less" scoped>
@@ -124,14 +140,14 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/www/web/assets/image/bg.png");
+    background-image: url('/www/web/assets/image/bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 
     .sign-content {
         box-sizing: border-box;
         margin: auto;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         border-radius: var(--yh-border-radius-base);
         width: 400px;
         position: relative;
@@ -157,7 +173,7 @@ export default defineComponent({
                         display: block;
                         position: absolute;
                         bottom: 0;
-                        content: "";
+                        content: '';
                         width: 100%;
                         height: 3px;
                         background-color: #0084ff;
@@ -259,7 +275,6 @@ export default defineComponent({
                     }
 
                     .social-title {
-
                     }
                 }
             }

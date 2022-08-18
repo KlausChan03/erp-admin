@@ -1,4 +1,4 @@
-import { addUniqueId } from '@/packages/utils/lodash';
+import { addUniqueId } from '@/packages/utils/lodash'
 
 const paths = addUniqueId(
     [
@@ -70,6 +70,6 @@ const paths = addUniqueId(
         },
     ],
     '_local',
-);
+)
 
-export default paths;
+export default paths

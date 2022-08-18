@@ -4,13 +4,18 @@
             <bag-card>
                 <template v-slot:title>欢迎您</template>
                 <div class="welcome">
-                    <div class="head"><img src="@/packages/assets/image/yanghang.jpg" alt=""></div>
+                    <div class="head">
+                        <img src="@/packages/assets/image/yanghang.jpg" alt="" />
+                    </div>
                     <div class="des">
-                        <h1>嗨，{{ tleData.pam }}好，今天是{{ tleData.date }} {{ tleData.week }} {{
-                                tleData.time
-                            }}，准备吃什么呢?</h1>
-                        <p>前端工程师 |
-                            品茗股份，vue-bag-admin，采用Vite2.0、Vue3.2、TypeScript、JavaScript构建，支持多种写法和调用，完整的框架体系，适合企业中后台响应式管理系统，支持现有业务各种扩展....</p>
+                        <h1>
+                            嗨，{{ tleData.pam }}好，今天是{{ tleData.date }} {{ tleData.week }}
+                            {{ tleData.time }}，准备吃什么呢?
+                        </h1>
+                        <p>
+                            前端工程师 |
+                            品茗股份，vue-bag-admin，采用Vite2.0、Vue3.2、TypeScript、JavaScript构建，支持多种写法和调用，完整的框架体系，适合企业中后台响应式管理系统，支持现有业务各种扩展....
+                        </p>
                     </div>
                 </div>
             </bag-card>
@@ -23,7 +28,6 @@ import * as dayjs from 'dayjs'
 export default defineComponent({
     name: 'home',
     setup() {
-
         const tleData = reactive({
             date: dayjs().format('YYYY年MM月DD日'),
             time: dayjs().format('HH时mm分ss秒'),
@@ -31,7 +35,7 @@ export default defineComponent({
             pam: dayjs().format('A'),
         })
 
-        let tleDataTime = function() {
+        let tleDataTime = function () {
             setTimeout(() => {
                 tleData.time = dayjs().format('HH时mm分ss秒')
                 tleDataTime()
@@ -81,7 +85,8 @@ export default defineComponent({
 }
 
 .money {
-    &-header, &-footer {
+    &-header,
+    &-footer {
         display: flex;
         align-items: center;
 
@@ -123,7 +128,9 @@ export default defineComponent({
         }
     }
 
-    &-header, &-footer, &-content {
+    &-header,
+    &-footer,
+    &-content {
         padding: 10px;
     }
 }
@@ -145,7 +152,6 @@ export default defineComponent({
         display: flex;
 
         &-title {
-
         }
 
         &-tab {

@@ -17,12 +17,10 @@
     </div>
 </template>
 <script>
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-    setup() {
-
-    }
+    setup() {},
 })
 </script>
 <style lang="less" scoped>
@@ -31,7 +29,6 @@ export default defineComponent({
     padding: 15px 15px 5px 15px;
     margin-top: 20px;
     &-head {
-
     }
 
     .tags {
@@ -42,7 +39,7 @@ export default defineComponent({
             font-size: 13px;
             padding: 3px 8px;
             border-radius: 3px;
-            opacity: .75;
+            opacity: 0.75;
             background-color: #ff6464;
             cursor: pointer;
             display: inline-block;

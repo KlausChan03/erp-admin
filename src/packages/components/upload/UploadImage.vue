@@ -1,10 +1,16 @@
 <template>
     <div class="upload-image">
-        <a-modal v-model:visible="tailor.visible" width="1000px" okText="确认上传" cancelText="关闭"
-                 :cancelButtonProps="{danger: true,type: 'primary'}" title="上传图片" @ok="tailor.handleConfirm"
-                 :confirm-loading="tailor.loading"
+        <a-modal
+            v-model:visible="tailor.visible"
+            width="1000px"
+            okText="确认上传"
+            cancelText="关闭"
+            :cancelButtonProps="{ danger: true, type: 'primary' }"
+            title="上传图片"
+            @ok="tailor.handleConfirm"
+            :confirm-loading="tailor.loading"
         >
-            <div style="width: 100%;height: 500px">
+            <div style="width: 100%; height: 500px">
                 <vueCropper
                     ref="cropper"
                     :img="tailor.base64"
@@ -19,20 +25,37 @@
         </a-modal>
         <div class="action-btn">
             <a-upload :file-list="fileList" :before-upload="beforeUpload">
-                <a-button>
-                    上传图片
-                </a-button>
-            </a-upload>&nbsp;
+                <a-button> 上传图片 </a-button> </a-upload
+            >&nbsp;
         </div>
         <div class="preview">
-            <div style="margin-right: 10px;display: inline-block;margin-top: 10px;position: relative"
-                 v-for="(item,idx) in preview.list"
+            <div
+                style="
+                    margin-right: 10px;
+                    display: inline-block;
+                    margin-top: 10px;
+                    position: relative;
+                "
+                v-for="(item, idx) in preview.list"
             >
-                <a-image style="object-fit:cover;height:100%;" :height="100" :width="100"
-                         :key="item" :src="item.url" alt=""
+                <a-image
+                    style="object-fit: cover; height: 100%"
+                    :height="100"
+                    :width="100"
+                    :key="item"
+                    :src="item.url"
+                    alt=""
                 />
                 <DeleteOutlined
-                    style="position: absolute;top: 0;right: 0;cursor: pointer;background-color: #36cfc9;padding: 5px;color:#fff"
+                    style="
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        cursor: pointer;
+                        background-color: #36cfc9;
+                        padding: 5px;
+                        color: #fff;
+                    "
                     @click="preview.handleDelete(idx)"
                 />
             </div>
@@ -48,21 +71,20 @@ import { message } from 'ant-design-vue'
 import base64ToFile from '__ROOT__/bag-utils/file/base64ToFile'
 import fileToBase64 from '__ROOT__/bag-utils/file/fileToBase64'
 
-
 interface FileItem {
-    uid: string;
-    name: string;
-    status?: string;
-    response?: string;
-    url?: string;
-    type?: string;
-    size: number;
-    originFileObj: any;
+    uid: string
+    name: string
+    status?: string
+    response?: string
+    url?: string
+    type?: string
+    size: number
+    originFileObj: any
 }
 
 interface FileInfo {
-    file: FileItem;
-    fileList: FileItem[];
+    file: FileItem
+    fileList: FileItem[]
 }
 
 export default defineComponent({
@@ -127,18 +149,23 @@ export default defineComponent({
             },
         })
 
-        watch(() => props.image, (newVal) => {
-            if (newVal) {
-                preview.list = newVal?.split(',').map((item: any) => {
-                    return { url: item, source: item }
-                })
-            }
-        })
+        watch(
+            () => props.image,
+            (newVal) => {
+                if (newVal) {
+                    preview.list = newVal?.split(',').map((item: any) => {
+                        return { url: item, source: item }
+                    })
+                }
+            },
+        )
 
         const emitImages = () => {
-            const str = preview.list.map(function(item: any) {
-                return item.source
-            }).join(',')
+            const str = preview.list
+                .map(function (item: any) {
+                    return item.source
+                })
+                .join(',')
             emit('update:image', str)
         }
 
@@ -155,7 +182,6 @@ export default defineComponent({
             })
         }
 
-
         return {
             fileList: ref([]),
             beforeUpload,
@@ -167,7 +193,6 @@ export default defineComponent({
 })
 </script>
 <style lang="less" scoped>
-
 .upload-image {
     .cropper {
         height: 600px;
@@ -182,7 +207,6 @@ export default defineComponent({
 
     .preview {
         img {
-
         }
     }
 }

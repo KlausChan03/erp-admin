@@ -3,7 +3,7 @@
         <div class="container">
             <el-row>
                 <el-col :xs="24" :sm="1" :md="2" :lg="1" :xl="1">
-                    <div class="nav-logo"><img src="@www/web/assets/image/logo.png" alt=""></div>
+                    <div class="nav-logo"><img src="@www/web/assets/image/logo.png" alt="" /></div>
                 </el-col>
                 <el-col :xs="24" :sm="20" :md="18" :lg="15" :xl="15">
                     <div class="nav-menu">
@@ -13,7 +13,8 @@
                             </li>
                             <li>
                                 <div>
-                                    <a href="">绩效管理
+                                    <a href=""
+                                        >绩效管理
                                         <it-icon name="arrow_drop_down" outlined />
                                     </a>
                                 </div>
@@ -47,13 +48,16 @@
                             <div class="keyword">
                                 <it-input v-model="inputValue" prefix-icon="search" />
                             </div>
-                            <it-button type="primary" style="margin-left: 15px;flex-shrink: 0;">搜索</it-button>
+                            <it-button type="primary" style="margin-left: 15px; flex-shrink: 0"
+                                >搜索</it-button
+                            >
                         </div>
                         <div class="nav-menu">
                             <ul>
                                 <li>
                                     <div>
-                                        <a href="">个人中心
+                                        <a href=""
+                                            >个人中心
                                             <it-icon name="arrow_drop_down" outlined />
                                         </a>
                                     </div>
@@ -154,7 +158,6 @@ const inputValue = ref()
                         }
                     }
                 }
-
             }
         }
     }
@@ -176,7 +179,7 @@ const inputValue = ref()
 
         .nav-menu {
             flex-shrink: 0;
-            a{
+            a {
                 padding-right: 0;
             }
             ul li ul.dropdown-menu {
@@ -188,7 +191,6 @@ const inputValue = ref()
     }
 
     &-user {
-
     }
 }
 </style>

@@ -14,16 +14,16 @@
     </bag-view>
 </template>
 <script>
-import {useWebSocket} from '@vueuse/core'
+import { useWebSocket } from '@vueuse/core'
 
 export default {
     setup() {
-        const {status, data, send, open, close} = useWebSocket('ws://127.0.0.1:7001', {
+        const { status, data, send, open, close } = useWebSocket('ws://127.0.0.1:7001', {
             heartbeat: {
                 message: 'ping',
                 interval: 3000,
             },
         })
-    }
+    },
 }
 </script>

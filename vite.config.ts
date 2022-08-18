@@ -1,15 +1,15 @@
-import {defineConfig, loadEnv} from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import setProBuild from './build/pro'
 import setLibBuild from './build/lib'
 import setUtilsBuild from './build/utils'
 import createVitePlugins from './build/plugin/index'
-import {configServer} from './build/server/index'
-import {configCss} from './build/css/index'
+import { configServer } from './build/server/index'
+import { configCss } from './build/css/index'
 
 const path = require('path')
 
-export default ({mode}: { mode: any }) => {
-    process.env = {...process.env, ...loadEnv(mode, process.cwd())}
+export default ({ mode }: { mode: any }) => {
+    process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
 
     let build: any = {
         minify: false, // 跟踪这个警告[https://github.com/element-plus/element-plus/issues/3219#issuecomment-960374776]
@@ -18,35 +18,35 @@ export default ({mode}: { mode: any }) => {
         chunkSizeWarningLimit: 500,
     }
     if (mode === 'development') {
-        const {rollupOptions} = setProBuild()
+        const { rollupOptions } = setProBuild()
         build.rollupOptions = rollupOptions
     }
     if (mode === 'production') {
-        const {rollupOptions, terserOptions} = setProBuild()
+        const { rollupOptions, terserOptions } = setProBuild()
         build.rollupOptions = rollupOptions
         build.terserOptions = terserOptions
     }
     if (mode === 'lib') {
-        const {emptyOutDir, lib, rollupOptions} = setLibBuild()
+        const { emptyOutDir, lib, rollupOptions } = setLibBuild()
         build.emptyOutDir = emptyOutDir
         build.lib = lib
         build.rollupOptions = rollupOptions
     }
     if (mode === 'utils') {
-        const {emptyOutDir, lib} = setUtilsBuild()
+        const { emptyOutDir, lib } = setUtilsBuild()
         build.emptyOutDir = emptyOutDir
         build.lib = lib
     }
     return defineConfig({
         base: './',
-        plugins: createVitePlugins({variables: process.env}),
+        plugins: createVitePlugins({ variables: process.env }),
         publicDir: 'public',
         resolve: {
             alias: {
                 // 如果报错__dirname找不到，需要安装node,执行yarn add @types/node --save-dev
                 '@www': path.resolve(__dirname, 'www'),
                 '@': path.resolve(__dirname, 'src'),
-                '__ROOT__': path.resolve(__dirname, ''),
+                __ROOT__: path.resolve(__dirname, ''),
             },
         },
         server: configServer(),

@@ -12,8 +12,7 @@ const base64ToFile = function (data: any, fileName: string) {
     while (n--) {
         u8arr[n] = buster.charCodeAt(n)
     }
-    return new File([u8arr], fileName, {type: mime})
+    return new File([u8arr], fileName, { type: mime })
 }
 
-
-export default base64ToFile;
+export default base64ToFile

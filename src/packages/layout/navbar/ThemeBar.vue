@@ -1,8 +1,12 @@
 <template>
     <div class="right_menu-item">
-        <input class="key-input" v-model="searchKey" @keydown.enter="handleKeyBoard($event,handleEnter)"
-               :class="searchActive" type="text"
-        >
+        <input
+            class="key-input"
+            v-model="searchKey"
+            @keydown.enter="handleKeyBoard($event, handleEnter)"
+            :class="searchActive"
+            type="text"
+        />
         <SearchOutlined class="icon-svg icon-search" @click="handleSearch" />
     </div>
     <div class="right_menu-item" v-if="isPC">
@@ -13,7 +17,9 @@
         <a-popover v-model="visible" title="系统通知" trigger="click">
             <template #content>
                 <div class="notice-content">
-                    <p v-for="item in noticeList" :key="item.id">{{ item.text }} {{ item.createTime }}</p>
+                    <p v-for="item in noticeList" :key="item.id">
+                        {{ item.text }} {{ item.createTime }}
+                    </p>
                 </div>
             </template>
             <a-badge :count="noticeList.length">
@@ -35,7 +41,7 @@
     </div>
     <component :is="themeBar" v-if="themeBar"></component>
     <div class="right_menu-item hidden-xs">
-        <img class="user-head" src="@/packages/assets/image/yanghang.jpg" alt="">
+        <img class="user-head" src="@/packages/assets/image/yanghang.jpg" alt="" />
         <a-dropdown>
             <a class="ant-dropdown-link" @click.prevent>
                 {{ userinfo.username }}
@@ -44,7 +50,9 @@
             <template #overlay>
                 <a-menu>
                     <a-menu-item>
-                        <a href="https://github.com/hangjob/vue-bag-admin" target="_blank">查看源码</a>
+                        <a href="https://github.com/hangjob/vue-bag-admin" target="_blank"
+                            >查看源码</a
+                        >
                     </a-menu-item>
                     <a-menu-item @click="handleQuit">
                         <LogoutOutlined />
@@ -96,12 +104,10 @@ export default defineComponent({
          */
         const handleSearch = () => {
             if (searchKey.value) {
-
             } else {
                 searchActive.value = searchActive.value ? null : 'search-active'
             }
         }
-
 
         const handleEnter = (e: KeyboardEvent) => {
             notification['success']({
@@ -170,13 +176,12 @@ export default defineComponent({
     transition: background-color 0.3s;
 
     &:hover {
-        background-color: rgba(0, 0, 0, .025);
+        background-color: rgba(0, 0, 0, 0.025);
     }
 
     &:last-of-type {
         margin-right: 0;
     }
-
 
     .key-input {
         background: none;
@@ -196,7 +201,7 @@ export default defineComponent({
 
     .icon-svg {
         font-size: 15px;
-        transition: all .3s;
+        transition: all 0.3s;
 
         &.refresh:active {
             transform: rotate(360deg);
@@ -222,7 +227,8 @@ export default defineComponent({
         padding: 5px 0;
         display: block;
 
-        &:last-child, &:first-child {
+        &:last-child,
+        &:first-child {
             padding: 0;
         }
     }

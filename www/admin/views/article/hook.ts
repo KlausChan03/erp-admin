@@ -4,7 +4,7 @@ import { apiAll as apiAllChannel } from '@www/admin/service/channel'
 import { apiUploadImage } from '@/packages/service/upload'
 import { message } from 'ant-design-vue'
 
-export default function() {
+export default function () {
     const formRef = ref()
 
     const formState: any = reactive({
@@ -28,17 +28,10 @@ export default function() {
         images_type: '',
     })
 
-
     const rules = {
-        title: [
-            { required: true, message: '标题为必填项', trigger: 'blur' },
-        ],
-        describe: [
-            { required: true, message: '简述为必填项', trigger: 'blur' },
-        ],
-        content: [
-            { required: true, message: '内容为必填项', trigger: 'blur' },
-        ],
+        title: [{ required: true, message: '标题为必填项', trigger: 'blur' }],
+        describe: [{ required: true, message: '简述为必填项', trigger: 'blur' }],
+        content: [{ required: true, message: '内容为必填项', trigger: 'blur' }],
     }
 
     const baseResources = reactive({
@@ -69,11 +62,13 @@ export default function() {
                     if (!isLt2M) {
                         message.error(`文件小于${2}MB`)
                     } else {
-                        apiUploadImage(file).then((data: any) => {
-                            rev(data)
-                        }).catch((err: any) => {
-                            rej(err)
-                        })
+                        apiUploadImage(file)
+                            .then((data: any) => {
+                                rev(data)
+                            })
+                            .catch((err: any) => {
+                                rej(err)
+                            })
                     }
                 })
             }),

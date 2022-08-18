@@ -7,7 +7,7 @@ const columns = [
         ellipsis: true,
         width: 70,
         customRender: ({ index }: { index: number }) => {
-            return index + 1
+            return index + 1;
         },
     },
     {
@@ -85,7 +85,7 @@ const columns = [
         width: 180,
         slots: { customRender: 'action' },
     },
-]
+];
 
 const rolesColumns = [
     {
@@ -96,7 +96,7 @@ const rolesColumns = [
         ellipsis: true,
         width: 70,
         customRender: ({ index }: { index: number }) => {
-            return index + 1
+            return index + 1;
         },
     },
     {
@@ -123,9 +123,7 @@ const rolesColumns = [
         align: 'center',
         slots: { customRender: 'createTime' },
     },
-]
+];
 
-export default columns
-export {
-    rolesColumns,
-}
+export default columns;
+export { rolesColumns };

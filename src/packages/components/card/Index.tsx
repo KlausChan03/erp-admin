@@ -1,4 +1,4 @@
-import {defineComponent, h} from 'vue'
+import { defineComponent, h } from 'vue'
 import classes from './Index.module.less'
 
 export default defineComponent({
@@ -6,20 +6,22 @@ export default defineComponent({
     props: {
         loading: {
             type: Boolean,
-            default: false
+            default: false,
         },
         active: {
             type: Boolean,
-            default: true
+            default: true,
         },
         class: {
             type: String || null,
-            default: null
-        }
+            default: null,
+        },
     },
-    setup(props, {slots}) {
-        const title = slots.title ? <div class={classes['bag-card-title']}>{slots.title?.()}</div> : null;
-        const className = classes['bag-card'] + ' ' + props.class;
+    setup(props, { slots }) {
+        const title = slots.title ? (
+            <div class={classes['bag-card-title']}>{slots.title?.()}</div>
+        ) : null
+        const className = classes['bag-card'] + ' ' + props.class
         return () => (
             <a-skeleton loading={props.loading}>
                 <div class={className}>

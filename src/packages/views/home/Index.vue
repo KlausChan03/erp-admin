@@ -4,27 +4,32 @@
             <bag-card>
                 <template v-slot:title>欢迎您</template>
                 <div class="welcome">
-                    <div class="head"><img src="@/packages/assets/image/yanghang.jpg" alt=""></div>
+                    <div class="head">
+                        <img src="@/packages/assets/image/yanghang.jpg" alt="" />
+                    </div>
                     <div class="des">
-                        <h1>嗨，{{ tleData.pam }}好，今天是{{ tleData.date }} {{ tleData.week }} {{
-                                tleData.time
-                            }}，准备吃什么呢?</h1>
-                        <p>前端工程师 |
-                            品茗股份，vue-bag-admin，采用Vite2.0、Vue3.2、TypeScript、JavaScript构建，支持多种写法和调用，完整的框架体系，适合企业中后台响应式管理系统，支持现有业务各种扩展....</p>
+                        <h1>
+                            嗨，{{ tleData.pam }}好，今天是{{ tleData.date }} {{ tleData.week }}
+                            {{ tleData.time }}，准备吃什么呢?
+                        </h1>
+                        <p>
+                            前端工程师 |
+                            品茗股份，vue-bag-admin，采用Vite2.0、Vue3.2、TypeScript、JavaScript构建，支持多种写法和调用，完整的框架体系，适合企业中后台响应式管理系统，支持现有业务各种扩展....
+                        </p>
                     </div>
                 </div>
             </bag-card>
         </a-col>
     </a-row>
-    <a-row :gutter="[16,0]">
+    <a-row :gutter="[16, 0]">
         <a-col :xs="24" :sm="24" :md="24" :lg="10" :xl="10">
-            <Returns/>
+            <Returns />
         </a-col>
         <a-col :xs="24" :sm="24" :md="24" :lg="14" :xl="14">
-            <ProjectInfo/>
+            <ProjectInfo />
         </a-col>
     </a-row>
-    <a-row :gutter="[16,0]">
+    <a-row :gutter="[16, 0]">
         <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="8">
             <bag-card :loading="false">
                 <div class="money">
@@ -37,7 +42,7 @@
                             <li>
                                 <span>7月同比</span>
                                 <div class="rise">
-                                    <RiseOutlined/>
+                                    <RiseOutlined />
                                     <span>+8%</span>
                                 </div>
                             </li>
@@ -45,7 +50,7 @@
                             <li>
                                 <span>8月同比</span>
                                 <div class="fall">
-                                    <FallOutlined/>
+                                    <FallOutlined />
                                     <span>-6%</span>
                                 </div>
                             </li>
@@ -70,7 +75,7 @@
                             <li>
                                 <span>7月同比</span>
                                 <div class="rise">
-                                    <RiseOutlined/>
+                                    <RiseOutlined />
                                     <span>+8%</span>
                                 </div>
                             </li>
@@ -78,7 +83,7 @@
                             <li>
                                 <span>8月同比</span>
                                 <div class="fall">
-                                    <FallOutlined/>
+                                    <FallOutlined />
                                     <span>-6%</span>
                                 </div>
                             </li>
@@ -103,7 +108,7 @@
                             <li>
                                 <span>7月同比</span>
                                 <div class="rise">
-                                    <RiseOutlined/>
+                                    <RiseOutlined />
                                     <span>+8%</span>
                                 </div>
                             </li>
@@ -111,7 +116,7 @@
                             <li>
                                 <span>8月同比</span>
                                 <div class="fall">
-                                    <FallOutlined/>
+                                    <FallOutlined />
                                     <span>-6%</span>
                                 </div>
                             </li>
@@ -125,13 +130,13 @@
             </bag-card>
         </a-col>
     </a-row>
-    <a-row :gutter="[16,0]">
+    <a-row :gutter="[16, 0]">
         <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="10">
             <bag-card :loading="loading" class="profit">
                 <template v-slot:title>
                     <div class="profit-header">
                         <div class="profit-header-title">项目盈利占比</div>
-                        <div class="profit-header-tab  hidden-xs">
+                        <div class="profit-header-tab hidden-xs">
                             <span class="active">今天</span>
                             <span>本月</span>
                             <span>本年</span>
@@ -172,25 +177,25 @@
         </a-col>
         <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="7">
             <a-skeleton :loading="loading" active>
-                <Ripple/>
+                <Ripple />
             </a-skeleton>
         </a-col>
         <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="7">
             <a-skeleton :loading="loading" active>
-                <Dynamic/>
+                <Dynamic />
             </a-skeleton>
         </a-col>
     </a-row>
-    <a-row :gutter="[16,0]">
+    <a-row :gutter="[16, 0]">
         <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="10">
             <bag-card :loading="loading">
                 <template v-slot:title>项目进度</template>
                 <div class="schedule-strip">
-                    <a-progress :percent="30"/>
-                    <a-progress :percent="50" status="active"/>
-                    <a-progress :percent="70" status="exception"/>
-                    <a-progress :percent="100"/>
-                    <a-progress :percent="50" :show-info="false"/>
+                    <a-progress :percent="30" />
+                    <a-progress :percent="50" status="active" />
+                    <a-progress :percent="70" status="exception" />
+                    <a-progress :percent="100" />
+                    <a-progress :percent="50" :show-info="false" />
                 </div>
             </bag-card>
         </a-col>
@@ -198,15 +203,21 @@
             <bag-card :loading="loading">
                 <template v-slot:title>项目进度</template>
                 <div class="schedule-lop">
-                    <a-row style="height: 100%" justify="center" align="middle" :wrap="true" :gutter="[32,16]">
+                    <a-row
+                        style="height: 100%"
+                        justify="center"
+                        align="middle"
+                        :wrap="true"
+                        :gutter="[32, 16]"
+                    >
                         <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" :xxl="8">
-                            <a-progress type="circle" :percent="75"/>
+                            <a-progress type="circle" :percent="75" />
                         </a-col>
                         <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" :xxl="8">
-                            <a-progress type="circle" :percent="70" status="exception"/>
+                            <a-progress type="circle" :percent="70" status="exception" />
                         </a-col>
                         <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" :xxl="8">
-                            <a-progress type="circle" :percent="100"/>
+                            <a-progress type="circle" :percent="100" />
                         </a-col>
                     </a-row>
                 </div>
@@ -228,7 +239,7 @@
     </a-row>
 </template>
 <script lang="ts">
-import {defineComponent, reactive, ref} from 'vue'
+import { defineComponent, reactive, ref } from 'vue'
 import Returns from './Returns.vue'
 import ProjectInfo from './ProjectInfo.vue'
 import Ripple from './Ripple.vue'
@@ -241,14 +252,13 @@ export default defineComponent({
         Returns,
         ProjectInfo,
         Ripple,
-        Dynamic
+        Dynamic,
     },
     setup() {
         const loading = ref(true)
         setTimeout(() => {
             loading.value = false
         }, 800)
-
 
         const tleData = reactive({
             date: dayjs().format('YYYY年MM月DD日'),
@@ -266,9 +276,9 @@ export default defineComponent({
         tleDataTime()
         return {
             loading,
-            tleData
+            tleData,
         }
-    }
+    },
 })
 </script>
 <style lang="less" scoped>
@@ -308,7 +318,8 @@ export default defineComponent({
 }
 
 .money {
-    &-header, &-footer {
+    &-header,
+    &-footer {
         display: flex;
         align-items: center;
 
@@ -350,7 +361,9 @@ export default defineComponent({
         }
     }
 
-    &-header, &-footer, &-content {
+    &-header,
+    &-footer,
+    &-content {
         padding: 10px;
     }
 }
@@ -372,7 +385,6 @@ export default defineComponent({
         display: flex;
 
         &-title {
-
         }
 
         &-tab {

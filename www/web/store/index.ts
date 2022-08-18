@@ -8,7 +8,4 @@ const setupStore = (app: App) => {
     app.use(createPinia())
 }
 
-
-export {
-    setupStore,
-}
+export { setupStore }

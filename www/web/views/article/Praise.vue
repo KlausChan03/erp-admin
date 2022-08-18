@@ -2,8 +2,8 @@
     <div class="praise">
         <div class="praise-head">10点赞</div>
         <div class="praise-users">
-            <a href="" v-for="(item,idx) in users" :key="idx">
-                <img src="@www/web/assets/image/banner-1.jpg" alt="">
+            <a href="" v-for="(item, idx) in users" :key="idx">
+                <img src="@www/web/assets/image/banner-1.jpg" alt="" />
                 <p>羊先生</p>
                 <span class="weight">3421</span>
             </a>
@@ -11,15 +11,15 @@
     </div>
 </template>
 <script>
-import {defineComponent,ref} from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
     setup() {
         const users = ref(20)
         return {
-            users
+            users,
         }
-    }
+    },
 })
 </script>
 <style lang="less">
@@ -51,7 +51,7 @@ export default defineComponent({
             p {
                 color: var(--yh-text-color-brown);
             }
-            .weight{
+            .weight {
                 position: absolute;
                 display: inline-block;
                 right: -5px;

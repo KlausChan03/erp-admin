@@ -6,7 +6,7 @@ const columns = [
         align: 'center',
         ellipsis: true,
         width: 70,
-        customRender: ({index}: { index: number }) => {
+        customRender: ({ index }: { index: number }) => {
             return index + 1
         },
     },
@@ -24,10 +24,13 @@ const columns = [
             placeholder: '输入用户ID',
             rules: [
                 {
-                    required: true, message: '用户ID为必填项', trigger: 'blur',type: 'number',
-                }
-            ]
-        }
+                    required: true,
+                    message: '用户ID为必填项',
+                    trigger: 'blur',
+                    type: 'number',
+                },
+            ],
+        },
     },
     {
         title: '关键词',
@@ -42,10 +45,12 @@ const columns = [
             placeholder: '输入关键词',
             rules: [
                 {
-                    required: true, message: '关键词为必填项', trigger: 'blur'
-                }
-            ]
-        }
+                    required: true,
+                    message: '关键词为必填项',
+                    trigger: 'blur',
+                },
+            ],
+        },
     },
     {
         title: '描述',
@@ -61,10 +66,13 @@ const columns = [
             maxlength: 300,
             rules: [
                 {
-                    required: true, message: '用户ID为必填项', trigger: 'blur',type: 'number',
-                }
-            ]
-        }
+                    required: true,
+                    message: '用户ID为必填项',
+                    trigger: 'blur',
+                    type: 'number',
+                },
+            ],
+        },
     },
     {
         title: '排序',
@@ -78,7 +86,7 @@ const columns = [
             label: '排序',
             element: 'a-input',
             placeholder: '输入排序号',
-        }
+        },
     },
     {
         title: '是否显示',
@@ -94,8 +102,8 @@ const columns = [
             name: 'shows',
             label: '是否显示',
             element: 'a-switch',
-            defaultValue: true
-        }
+            defaultValue: true,
+        },
     },
     {
         title: '创建时间',
@@ -110,8 +118,8 @@ const columns = [
         key: 'action',
         align: 'center',
         width: 200,
-        slots: {customRender: 'action'},
+        slots: { customRender: 'action' },
     },
 ]
 
-export default columns;
+export default columns

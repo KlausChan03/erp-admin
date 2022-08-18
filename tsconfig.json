@@ -10,28 +10,13 @@
         "resolveJsonModule": true,
         "baseUrl": "./",
         "paths": {
-            "@www/*": [
-                "www/*"
-            ],
-            "@/*": [
-                "src/*"
-            ],
-            "__ROOT__/*": [
-                "*"
-            ]
+            "@www/*": ["www/*"],
+            "@/*": ["src/*"],
+            "__ROOT__/*": ["*"]
         },
-        "types": [
-            "webpack-env",
-            "node"
-        ],
-        "typeRoots": [
-            "./typings"
-        ],
+        "types": ["webpack-env", "node"],
+        "typeRoots": ["./typings"],
         "allowSyntheticDefaultImports": true
     },
-    "exclude": [
-        "node_modules",
-        "egg/node_modules",
-        "egg/*"
-    ]
+    "exclude": ["node_modules", "egg/node_modules", "egg/*"]
 }

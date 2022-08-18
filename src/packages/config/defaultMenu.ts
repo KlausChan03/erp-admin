@@ -91,7 +91,26 @@ const arr = [
         router: '',
         icon: 'BgIonfontJfen',
         shows: 1,
-        children: [],
+        children: [
+            {
+                name: '付款单',
+                path: '/finance/payment',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '收款单',
+                path: '/finance/receipt',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+        ],
     },
     {
         name: '查询报表',

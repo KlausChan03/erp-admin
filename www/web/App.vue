@@ -5,13 +5,12 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-    setup() {
-
-    },
+    setup() {},
 })
 </script>
 <style lang="less">
-html, body {
+html,
+body {
     background: #f4f6f8;
     font-size: var(--yh-font-size-base);
 }

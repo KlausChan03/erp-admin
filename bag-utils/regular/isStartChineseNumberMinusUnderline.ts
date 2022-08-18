@@ -7,4 +7,4 @@ const isStartChineseNumberMinusUnderline = (data: string) => {
     return reg.test(data)
 }
 
-export default isStartChineseNumberMinusUnderline;
+export default isStartChineseNumberMinusUnderline

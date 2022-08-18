@@ -5,39 +5,39 @@
                 editorId="md-prev"
                 v-model="data.text"
                 :toolbars="[
-          'bold',
-          'underline',
-          'italic',
-          'strikeThrough',
-          '-',
-          'title',
-          'sub',
-          'sup',
-          'quote',
-          'unorderedList',
-          'orderedList',
-          '-',
-          'codeRow',
-          'code',
-          'link',
-          'image',
-          'table',
-          'mermaid',
-          'katex',
-          0,
-          1,
-          '-',
-          'revoke',
-          'next',
-          'save',
-          '=',
-          'prettier',
-          'pageFullscreen',
-          'fullscreen',
-          'preview',
-          'htmlPreview',
-          'catalog',
-        ]"
+                    'bold',
+                    'underline',
+                    'italic',
+                    'strikeThrough',
+                    '-',
+                    'title',
+                    'sub',
+                    'sup',
+                    'quote',
+                    'unorderedList',
+                    'orderedList',
+                    '-',
+                    'codeRow',
+                    'code',
+                    'link',
+                    'image',
+                    'table',
+                    'mermaid',
+                    'katex',
+                    0,
+                    1,
+                    '-',
+                    'revoke',
+                    'next',
+                    'save',
+                    '=',
+                    'prettier',
+                    'pageFullscreen',
+                    'fullscreen',
+                    'preview',
+                    'htmlPreview',
+                    'catalog',
+                ]"
                 :extensions="[MarkExtension]"
             >
                 <template #defToolbars>
@@ -73,7 +73,6 @@ import Editor from 'md-editor-v3'
 import './index.less'
 import { emojis } from './emoji'
 // 参考下方的marked扩展内容
-
 
 const props = defineProps({
     text: String,

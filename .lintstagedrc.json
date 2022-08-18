@@ -1,4 +1,13 @@
 {
-  "*.{js,jsx,ts,tsx}": ["prettier --write .", "eslint  --fix"],
-  "*.md": ["prettier --write"]
-}
+    "src/**/*.{jsx,txs,ts,js,json,css,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "egg/**/*.{jsx,txs,ts,js,json,css,md}": [
+        "prettier --write",
+        "eslint --fix",
+        "git add"
+      ]
+  }
+  

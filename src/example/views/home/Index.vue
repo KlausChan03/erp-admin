@@ -1,9 +1,9 @@
 <template>
     <bag-view>
         <a-typography-title :level="3">该页面已开启缓存</a-typography-title>
-        <br/>
+        <br />
         <a-button @click="handleStore">测试store</a-button>
-        <br/>
+        <br />
         <a-form
             ref="formRef"
             :model="formState"
@@ -58,15 +58,15 @@
 <script lang="ts">
 import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface'
 import { defineComponent, reactive, ref, toRaw, UnwrapRef } from 'vue'
-import {useStore} from 'vuex'
+import { useStore } from 'vuex'
 interface FormState {
-    name: string;
-    region: string | undefined;
-    date1: any;
-    delivery: boolean;
-    type: string[];
-    resource: string;
-    desc: string;
+    name: string
+    region: string | undefined
+    date1: any
+    delivery: boolean
+    type: string[]
+    resource: string
+    desc: string
 }
 
 export default defineComponent({
@@ -88,7 +88,14 @@ export default defineComponent({
                 { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
             ],
             region: [{ required: true, message: 'Please select Activity zone', trigger: 'change' }],
-            date1: [{ required: true, message: 'Please pick a date', trigger: 'change', type: 'object' }],
+            date1: [
+                {
+                    required: true,
+                    message: 'Please pick a date',
+                    trigger: 'change',
+                    type: 'object',
+                },
+            ],
             type: [
                 {
                     type: 'array',
@@ -97,7 +104,9 @@ export default defineComponent({
                     trigger: 'change',
                 },
             ],
-            resource: [{ required: true, message: 'Please select activity resource', trigger: 'change' }],
+            resource: [
+                { required: true, message: 'Please select activity resource', trigger: 'change' },
+            ],
             desc: [{ required: true, message: 'Please input activity form', trigger: 'blur' }],
         }
         const onSubmit = () => {
@@ -114,7 +123,7 @@ export default defineComponent({
             formRef.value.resetFields()
         }
         const store = useStore()
-        const handleStore = ()=>{
+        const handleStore = () => {
             console.log(store)
         }
         return {

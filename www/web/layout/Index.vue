@@ -1,20 +1,20 @@
 <template>
     <header>
-        <LayoutNav/>
+        <LayoutNav />
     </header>
     <main>
-<!--        <div>-->
-<!--            <section></section>-->
-<!--            <article></article>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--            <aside></aside>-->
-<!--            <figure></figure>-->
-<!--        </div>-->
+        <!--        <div>-->
+        <!--            <section></section>-->
+        <!--            <article></article>-->
+        <!--        </div>-->
+        <!--        <div>-->
+        <!--            <aside></aside>-->
+        <!--            <figure></figure>-->
+        <!--        </div>-->
         <router-view />
     </main>
     <footer>
-        <LayoutFooter/>
+        <LayoutFooter />
     </footer>
 </template>
 <script setup lang="ts">

@@ -53,6 +53,9 @@ module.exports = {
 
         // 不检查后面是否有分号
         semi: 2,
+        
+        // 添加组件命名忽略规则
+        "vue/multi-word-component-names":"off",
 
         // 要求操作符周围有空格
         'space-infix-ops': 1,
@@ -75,4 +78,4 @@ module.exports = {
 
         'vue/component-definition-name-casing': 'off', // 驼峰命名
     },
-};
+}

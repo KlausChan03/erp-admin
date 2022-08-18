@@ -3,14 +3,14 @@
         <div class="container">
             <el-row :gutter="20">
                 <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-                    <Broadcast/>
+                    <Broadcast />
                 </el-col>
                 <el-col :xs="24" :sm="24" :md="24" :lg="16" :xl="16">
-                    <Toplove/>
-                    <HomeSection/>
+                    <Toplove />
+                    <HomeSection />
                 </el-col>
                 <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
-                    <HomeAside/>
+                    <HomeAside />
                 </el-col>
             </el-row>
         </div>

@@ -1,8 +1,8 @@
-import {computed, defineComponent, ref, watchEffect} from 'vue'
-import {useStore} from 'vuex'
-import {useRoute, useRouter} from 'vue-router'
-import {toTree} from '@/packages/utils/utils'
-import {deepMenu} from '@/packages/layout/common'
+import { computed, defineComponent, ref, watchEffect } from 'vue'
+import { useStore } from 'vuex'
+import { useRoute, useRouter } from 'vue-router'
+import { toTree } from '@/packages/utils/utils'
+import { deepMenu } from '@/packages/layout/common'
 
 export default defineComponent({
     name: 'bag-menu-slider',
@@ -48,7 +48,6 @@ export default defineComponent({
                 selectedKeys.value = [tabPaths.pop().id]
             }
         })
-
 
         return {
             selectedKeys,

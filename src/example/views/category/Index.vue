@@ -1,7 +1,7 @@
 <template>
     <bag-view>
         category分类111
-        <input type="text">
+        <input type="text" />
     </bag-view>
 </template>
 <script lang="ts">

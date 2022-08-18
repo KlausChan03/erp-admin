@@ -2,28 +2,30 @@
     <!--  菜单路径  -->
     <div class="layout-header">
         <a-layout-header class="layout-header_top">
-            <MenuFoldOutlined v-if="collapsed" @click="handleCollapsed(false)"/>
-            <MenuUnfoldOutlined @click="handleCollapsed(true)" v-else/>
+            <MenuFoldOutlined v-if="collapsed" @click="handleCollapsed(false)" />
+            <MenuUnfoldOutlined @click="handleCollapsed(true)" v-else />
             <a-breadcrumb class="text-overflow breadcrumb" style="" v-if="!isMobile">
-                <a-breadcrumb-item v-for="(item,idx) in list" :key="idx">{{ item.name }}</a-breadcrumb-item>
+                <a-breadcrumb-item v-for="(item, idx) in list" :key="idx">{{
+                    item.name
+                }}</a-breadcrumb-item>
             </a-breadcrumb>
             <a-breadcrumb class="text-overflow breadcrumb" v-else>
                 <a-breadcrumb-item>{{ list[list.length - 1].name }}</a-breadcrumb-item>
             </a-breadcrumb>
         </a-layout-header>
-        <CutSystems/>
+        <CutSystems />
         <div class="layout-header_right_menu">
-            <ThemeBar/>
+            <ThemeBar />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import {computed, defineComponent} from 'vue'
-import {useStore} from 'vuex'
+import { computed, defineComponent } from 'vue'
+import { useStore } from 'vuex'
 import ThemeBar from '@/packages/layout/navbar/ThemeBar.vue'
 import CutSystems from '@/packages/layout/navbar/CutSystems'
-import {MenuFoldOutlined, MenuUnfoldOutlined} from '@ant-design/icons-vue'
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue'
 
 export default defineComponent({
     components: {
@@ -33,7 +35,6 @@ export default defineComponent({
         CutSystems,
     },
     setup() {
-
         const store = useStore()
         const list = computed(() => store.getters['app/tabViewsPath'])
         const isMobile = computed(() => store.getters['app/getBrowser'].isMobile)
@@ -68,7 +69,7 @@ export default defineComponent({
     .breadcrumb {
         display: flex;
         align-items: center;
-        margin-left: 10px
+        margin-left: 10px;
     }
 
     &_top {

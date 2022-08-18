@@ -19,6 +19,8 @@ class UserController extends baseController {
     }
 
     async login() {
+        console.log('hello world')
+
         const { ctx } = this
         const body = ctx.request.body
         try {
@@ -33,13 +35,16 @@ class UserController extends baseController {
                     password: token,
                 },
             })
-            console.log(ctx.request.body, result, token)
+            console.log(ctx.request.body, result, token, 'hk')
             if (result) {
                 this.ctx.cookies.set('token', token, {
                     maxAge: 1000 * 3600 * 30,  //cookie存储一天     设置过期时间后关闭浏览器重新打开cookie还存在
                     httpOnly: true,
                     signed: true,     //对cookie进行签名  防止用户修改cookie
                     encrypt: true,   //是否对cookie进行加密     如果cookie加密那么获取的时候要对cookie进行解密
+                })
+                this.ctx.cookies.set('user_info', result, {
+                    maxAge: 2 * 3600000
                 })
                 this.result({ data: result })
             } else {

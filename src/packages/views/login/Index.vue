@@ -2,29 +2,44 @@
     <div class="login">
         <div class="login-container">
             <div class="login-content">
-                <a-row :gutter="[100,16]">
+                <a-row :gutter="[100, 16]">
                     <a-col :xs="0" :sm="0" :md="0" :lg="12" :xl="12">
-                        <div class="slide-left"><img src="@/packages/assets/image/01.jpg" alt=""></div>
+                        <div class="slide-left">
+                            <img src="@/packages/assets/image/01.jpg" alt="" />
+                        </div>
                     </a-col>
                     <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                         <div class="slide-right">
                             <h2>欢迎您登录</h2>
                             <p>你可以直接输入您的账号和密码登录</p>
-                            <a-form autocomplete="off" :rules="rules" ref="formRef" class="login-form"
-                                    :layout="formState.layout"
-                                    :model="formState"
+                            <a-form
+                                autocomplete="off"
+                                :rules="rules"
+                                ref="formRef"
+                                class="login-form"
+                                :layout="formState.layout"
+                                :model="formState"
                             >
                                 <a-form-item label="你的账户" name="username">
-                                    <a-input size="large" v-model:value="formState.username" placeholder="随意输入你的账户" />
+                                    <a-input
+                                        size="large"
+                                        v-model:value="formState.username"
+                                        placeholder="随意输入你的账户"
+                                    />
                                 </a-form-item>
                                 <a-form-item label="你的密码" name="password">
-                                    <a-input size="large" type="password" v-model:value="formState.password"
-                                             placeholder="随意输入你的密码"
+                                    <a-input
+                                        size="large"
+                                        type="password"
+                                        v-model:value="formState.password"
+                                        placeholder="随意输入你的密码"
                                     />
                                 </a-form-item>
                                 <a-form-item>
                                     <div class="login-options">
-                                        <a-checkbox v-model:checked="formState.rememberPas">七天记住我</a-checkbox>
+                                        <a-checkbox v-model:checked="formState.rememberPas"
+                                            >七天记住我</a-checkbox
+                                        >
                                         <span class="hover-text-underline">忘记密码? 找回密码</span>
                                     </div>
                                 </a-form-item>
@@ -38,9 +53,13 @@
                         </div>
                     </a-col>
                 </a-row>
-                <img class="embe embe1" src="@/packages/assets/image/01.png" alt="">
-                <img class="embe embe2 hidden-xs" src="@/packages/assets/image/01.png" alt="">
-                <img class="logo hidden-xs hidden-sm" src="@/packages/assets/image/yanghang.jpg" alt="">
+                <img class="embe embe1" src="@/packages/assets/image/01.png" alt="" />
+                <img class="embe embe2 hidden-xs" src="@/packages/assets/image/01.png" alt="" />
+                <img
+                    class="logo hidden-xs hidden-sm"
+                    src="@/packages/assets/image/yanghang.jpg"
+                    alt=""
+                />
             </div>
         </div>
     </div>
@@ -56,9 +75,9 @@ import { apiUserUserinfo } from '@/packages/service/user'
 import locaStore from '@/packages/utils/persistence'
 
 interface FormState {
-    layout: 'horizontal' | 'vertical' | 'inline';
-    username: string;
-    password: string;
+    layout: 'horizontal' | 'vertical' | 'inline'
+    username: string
+    password: string
     rememberPas: string | boolean
 }
 
@@ -102,11 +121,16 @@ export default defineComponent({
             formRef.value
                 .validate()
                 .then(() => {
-                    apiLogin(formState).then(() => {
+                    apiLogin(formState).then((response: any) => {
+                        console.log(response, formState, 'hi')
                         if (formState.rememberPas) {
-                            locaStore.set('encryptData', Encrypt(JSON.stringify(formState)), 3600 * 24 * 7)
+                            locaStore.set(
+                                'encryptData',
+                                Encrypt(JSON.stringify(formState)),
+                                3600 * 24 * 7,
+                            )
                         }
-                        router.push('/home') // 此处通过菜单节点去读取第一个，默认是跳转home
+                        // router.push('/home') // 此处通过菜单节点去读取第一个，默认是跳转home
                     })
                 })
                 .catch((error: ValidateErrorEntity<FormState>) => {
@@ -128,7 +152,7 @@ export default defineComponent({
 .login {
     width: 100%;
     height: 100%;
-    background: url("/src/packages/assets/image/02.jpg") no-repeat center center;
+    background: url('/src/packages/assets/image/02.jpg') no-repeat center center;
 
     &-container {
         width: 75%;

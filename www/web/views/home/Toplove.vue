@@ -1,9 +1,9 @@
 <template>
     <div class="toplevel">
         <ul>
-            <li v-for="(item,index) in items" :key="index">
+            <li v-for="(item, index) in items" :key="index">
                 <router-link :to="item.url">
-                    <i :class="[item.icon]" :style="{color:item.color}"></i>
+                    <i :class="[item.icon]" :style="{ color: item.color }"></i>
                     <span>{{ item.value }}</span>
                 </router-link>
             </li>
@@ -11,24 +11,29 @@
     </div>
 </template>
 <script>
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
     setup() {
         const items = [
-            {value: '每日推荐', icon: 'icon-rili1', color: '#666', url: '/daily'},
-            {value: '效率工具', icon: 'icon-caozuojiemiantubiao---_gongju', color: '#f9be00', url: '/category/1'},
-            {value: '公众号', icon: 'icon-weixin', color: '#67c23a', url: '', isClick: true},
-            {value: '精选文章', icon: 'icon-wenzhangguanli', color: '#cddc39', url: '/article'},
-            {value: 'Top热榜', icon: 'icon-redu', color: '#f56c6c', url: '/hot'},
-            {value: 'Web前端', icon: 'icon-kaifaguanli', color: '#6869dc', url: '/category/8'},
-            {value: 'UI设计', icon: 'icon-shejishi2', color: '#e91e63', url: '/category/4'},
-            {value: '给我留言', icon: 'icon-xinjian', color: '#f8ce58', url: '', url: '/intera'}, // 弹个窗 然后 发送邮件， 填写用户邮箱，我回复
+            { value: '每日推荐', icon: 'icon-rili1', color: '#666', url: '/daily' },
+            {
+                value: '效率工具',
+                icon: 'icon-caozuojiemiantubiao---_gongju',
+                color: '#f9be00',
+                url: '/category/1',
+            },
+            { value: '公众号', icon: 'icon-weixin', color: '#67c23a', url: '', isClick: true },
+            { value: '精选文章', icon: 'icon-wenzhangguanli', color: '#cddc39', url: '/article' },
+            { value: 'Top热榜', icon: 'icon-redu', color: '#f56c6c', url: '/hot' },
+            { value: 'Web前端', icon: 'icon-kaifaguanli', color: '#6869dc', url: '/category/8' },
+            { value: 'UI设计', icon: 'icon-shejishi2', color: '#e91e63', url: '/category/4' },
+            { value: '给我留言', icon: 'icon-xinjian', color: '#f8ce58', url: '', url: '/intera' }, // 弹个窗 然后 发送邮件， 填写用户邮箱，我回复
         ]
         return {
-            items
+            items,
         }
-    }
+    },
 })
 </script>
 <style lang="less" scoped>

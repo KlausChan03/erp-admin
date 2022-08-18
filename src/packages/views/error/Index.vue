@@ -28,7 +28,7 @@
                     <template #extra>
                         <a-button key="console" danger type="primary">关闭页面</a-button>
                         <a-button key="buy" type="primary">
-                            <apple-outlined/>
+                            <apple-outlined />
                             前往苹果
                         </a-button>
                     </template>
@@ -53,12 +53,12 @@
                             <strong>您提交失败，可能也有以下错误:</strong>
                         </p>
                         <p>
-                            <close-circle-outlined :style="{ color: 'red' }"/>
+                            <close-circle-outlined :style="{ color: 'red' }" />
                             您的账号可能已被冻结
                             <a>前往解冻 &gt;</a>
                         </p>
                         <p>
-                            <close-circle-outlined :style="{ color: 'red' }"/>
+                            <close-circle-outlined :style="{ color: 'red' }" />
                             您的账号没有申请资格
                             <a>申请资格 &gt;</a>
                         </p>
@@ -71,7 +71,7 @@
                 </template>
                 <a-result title="太好了，我们已经完成了所有的操作!">
                     <template #icon>
-                        <smile-twoTone/>
+                        <smile-twoTone />
                     </template>
                     <template #extra>
                         <a-button type="primary">下一步</a-button>
@@ -82,44 +82,43 @@
                 <template #tab>
                     <span>403</span>
                 </template>
-                <error403/>
+                <error403 />
             </a-tab-pane>
             <a-tab-pane key="404">
                 <template #tab>
                     <span>404</span>
                 </template>
-                <error404/>
+                <error404 />
             </a-tab-pane>
             <a-tab-pane key="500">
                 <template #tab>
                     <span>500</span>
                 </template>
-                <error500/>
+                <error500 />
             </a-tab-pane>
         </a-tabs>
     </bag-view>
 </template>
 <script lang="ts">
-import {AndroidOutlined, AppleOutlined} from '@ant-design/icons-vue';
-import {defineComponent, ref} from 'vue';
+import { AndroidOutlined, AppleOutlined } from '@ant-design/icons-vue'
+import { defineComponent, ref } from 'vue'
 import error403 from './403.vue'
 import error404 from './404.vue'
 import error500 from './500.vue'
 
 export default defineComponent({
-    name:'error',
+    name: 'error',
     setup() {
         return {
             activeKey: ref('1'),
-        };
+        }
     },
     components: {
         AppleOutlined,
         AndroidOutlined,
         error403,
         error404,
-        error500
+        error500,
     },
-});
+})
 </script>
-

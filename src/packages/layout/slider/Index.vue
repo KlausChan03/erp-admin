@@ -13,19 +13,19 @@
         <div class="slider-container">
             <div class="left-slider">
                 <div class="left-slider-logo">
-                    {{logoTitle}}
+                    {{ logoTitle }}
                 </div>
                 <div class="scroll">
-                    <MenuSlider/>
+                    <MenuSlider />
                 </div>
             </div>
         </div>
     </a-drawer>
 </template>
 <script lang="ts">
-import {computed, defineComponent} from 'vue'
+import { computed, defineComponent } from 'vue'
 import MenuSlider from './MenuSlider'
-import {useStore} from 'vuex';
+import { useStore } from 'vuex'
 
 export default defineComponent({
     name: 'Slider',
@@ -47,7 +47,9 @@ export default defineComponent({
             return menuMinWidth
         })
 
-        const logoTitle = computed(() => width.value === 80 ? '<i class="bag-iconfont-system"></i>' : 'admin')
+        const logoTitle = computed(() =>
+            width.value === 80 ? '<i class="bag-iconfont-system"></i>' : 'admin',
+        )
 
         const close = () => {
             store.commit('app/updateFloatingVisible', !store.getters['app/getFloatingVisible'])

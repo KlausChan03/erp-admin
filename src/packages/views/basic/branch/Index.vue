@@ -41,7 +41,9 @@
             :row-selection="tableCurd.selection"
         >
             <template #pname="{ record }">
-                <a-tag class="bag-button-color-green" v-if="getName({ record })">{{ getName({ record }) }}</a-tag>
+                <a-tag class="bag-button-color-green" v-if="getName({ record })">{{
+                    getName({ record })
+                }}</a-tag>
                 <span v-else>-</span>
             </template>
             <template #action="{ record }">

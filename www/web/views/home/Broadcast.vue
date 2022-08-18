@@ -12,7 +12,7 @@
                 <h3>
                     <CountTo :startVal="0" :endVal="obj.all" :duration="3000"></CountTo>
                 </h3>
-                <p style="margin-bottom: 20px;">资源总数</p>
+                <p style="margin-bottom: 20px">资源总数</p>
                 <p>互联网职员，找导航，就上全栈导航</p>
                 <div class="banner-more">
                     <span>查看所有</span>
@@ -25,14 +25,22 @@
                 <div class="update-number">
                     <div class="number-top">
                         <div class="total">
-                            <CountTo :startVal="0" :endVal="obj.lastMonth" :duration="2500"></CountTo>
+                            <CountTo
+                                :startVal="0"
+                                :endVal="obj.lastMonth"
+                                :duration="2500"
+                            ></CountTo>
                         </div>
                         <div class="change">
                             <p>
-                            <span>
-                                +
-                                <CountTo :startVal="0" :endVal="obj.lastWeek" :duration="1800"></CountTo>
-                            </span>
+                                <span>
+                                    +
+                                    <CountTo
+                                        :startVal="0"
+                                        :endVal="obj.lastWeek"
+                                        :duration="1800"
+                                    ></CountTo>
+                                </span>
                             </p>
                             <p class="new-work">上一周新增</p>
                         </div>
@@ -49,8 +57,13 @@
                         </div>
                         <div class="change">
                             <p>
-                                <span>+<CountTo :startVal="0" :endVal="obj.userLastMonth" :duration="1800"
-                                ></CountTo></span>
+                                <span
+                                    >+<CountTo
+                                        :startVal="0"
+                                        :endVal="obj.userLastMonth"
+                                        :duration="1800"
+                                    ></CountTo
+                                ></span>
                             </p>
                             <p class="new-work">注册用户</p>
                         </div>
@@ -65,12 +78,12 @@
     </el-row>
 </template>
 <script lang="ts">
-import {defineComponent, reactive} from 'vue'
-import {CountTo} from 'vue3-count-to';
+import { defineComponent, reactive } from 'vue'
+import { CountTo } from 'vue3-count-to'
 
 export default defineComponent({
     components: {
-        CountTo
+        CountTo,
     },
     setup() {
         const obj = reactive({
@@ -78,19 +91,19 @@ export default defineComponent({
             lastMonth: 30056,
             userAll: 30056,
             userLastMonth: 30056,
-            lastWeek: 30056
+            lastWeek: 30056,
         })
         return {
-            obj
+            obj,
         }
-    }
+    },
 })
 </script>
 <style lang="less" scoped>
 .banner-ia {
     width: 100%;
     height: 300px;
-    background: #fff url("/www/web/assets/image/adEBooks.png") no-repeat center bottom;
+    background: #fff url('/www/web/assets/image/adEBooks.png') no-repeat center bottom;
     text-align: center;
     border-radius: var(--yh-border-radius-base);
     padding-top: 30px;
@@ -163,9 +176,11 @@ export default defineComponent({
         }
     }
 
-    background: linear-gradient(to bottom right,
-    rgba(71, 114, 217, 0.92),
-    rgba(109, 71, 217, 0.92));
+    background: linear-gradient(
+        to bottom right,
+        rgba(71, 114, 217, 0.92),
+        rgba(109, 71, 217, 0.92)
+    );
     border-radius: var(--yh-border-radius-base);
     text-align: center;
     color: #282828;
@@ -236,10 +251,8 @@ export default defineComponent({
     height: calc(100% - 20px);
     margin-top: var(--yh-margin-base);
     .update-number {
-        background: linear-gradient(135deg,
-        rgba(71, 114, 217, 0.92),
-        rgba(0, 220, 175, 0.92)),
-        url("/www/web/assets/image/mdbg.svg") no-repeat 50%;
+        background: linear-gradient(135deg, rgba(71, 114, 217, 0.92), rgba(0, 220, 175, 0.92)),
+            url('/www/web/assets/image/mdbg.svg') no-repeat 50%;
         position: relative;
         border-radius: var(--yh-border-radius-base);
         color: #282828;
@@ -275,9 +288,7 @@ export default defineComponent({
             .number-top {
                 .total {
                     color: #4772d9;
-                    background: -webkit-linear-gradient(bottom,
-                    #458dd1,
-                    #2bafc1);
+                    background: -webkit-linear-gradient(bottom, #458dd1, #2bafc1);
                     background-clip: border-box;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
@@ -364,10 +375,8 @@ export default defineComponent({
         }
 
         &:last-child {
-            background: linear-gradient(135deg,
-            rgba(109, 71, 217, 0.92),
-            rgba(249, 61, 102, 0.92)),
-            url("/www/web/assets/image/mdbg.svg") no-repeat 50%;
+            background: linear-gradient(135deg, rgba(109, 71, 217, 0.92), rgba(249, 61, 102, 0.92)),
+                url('/www/web/assets/image/mdbg.svg') no-repeat 50%;
             margin-bottom: 0;
         }
     }
