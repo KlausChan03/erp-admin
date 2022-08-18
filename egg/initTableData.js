@@ -15,7 +15,7 @@ const data = JSON.stringify({
 
 const options = {
     hostname: 'localhost',
-    port: 8001,
+    port: 8290,
     path: '/member/create',
     method: 'POST',
     headers: {

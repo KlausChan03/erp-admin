@@ -3,7 +3,7 @@
 /html
 /lib/*
 /public
-/src/web
+# /src/web
 /test
 /mock
 /egg/*

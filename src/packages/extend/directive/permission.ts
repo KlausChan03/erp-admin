@@ -1,63 +1,55 @@
-import { App, Directive, DirectiveBinding } from 'vue'
-import store from '@/packages/store'
-
+import { App, Directive, DirectiveBinding } from 'vue';
+import store from '@/packages/store';
 
 const isButton = (el: Element) => {
-    return el.tagName.toLowerCase() === 'button'
-}
+    return el.tagName.toLowerCase() === 'button';
+};
 
 // 权限指令
 function handlePermission(el: Element, binding: DirectiveBinding) {
-    const { value, arg } = binding
+    const { value, arg } = binding;
     if (value && value instanceof Array) {
-        const roles = store.getters['user/roles']
+        const roles = store.getters['user/roles'];
         const hasPermission = roles.some((role: any) => {
-            return value.includes(role)
-        })
+            return value.includes(role);
+        });
 
         if (!hasPermission && arg) {
-            return el.parentNode && el.parentNode.removeChild(el) // 条件不成立删除
+            return el.parentNode && el.parentNode.removeChild(el); // 条件不成立删除
         }
 
         if (!hasPermission) {
-
             if (isButton(el)) {
-                el.classList.add('ant-btn-dashed')
-                el.setAttribute('disabled', 'disabled')
+                el.classList.add('ant-btn-dashed');
+                el.setAttribute('disabled', 'disabled');
             } else {
-                el.parentNode && el.parentNode.removeChild(el)
+                el.parentNode && el.parentNode.removeChild(el);
             }
         }
     } else {
-        console.error('权限控制使用例子 v-auth="[\'admin\',\'editor\']"')
+        console.error("权限控制使用例子 v-auth=\"['admin','editor']\"");
     }
 }
 
 const permission: Directive = {
     // 指令绑定元素挂载前
-    beforeMount() {
-
-    },
+    beforeMount() {},
     // 指令绑定元素挂载后
     mounted(el: Element, binding: DirectiveBinding) {
-        handlePermission(el, binding)
+        handlePermission(el, binding);
     },
     // 指令绑定元素因为数据修改触发修改后
     updated(el: Element, binding: DirectiveBinding) {
-        handlePermission(el, binding)
+        handlePermission(el, binding);
     },
     // 指令绑定元素销毁前
-    beforeUnmount() {
-
-    },
+    beforeUnmount() {},
     // 指令绑定元素销毁后
-    unmounted() {
-
-    },
-}
+    unmounted() {},
+};
 
 const setupPermission = (app: App) => {
-    app.directive('auth', permission)
-}
+    app.directive('auth', permission);
+};
 
-export default setupPermission
+export default setupPermission;

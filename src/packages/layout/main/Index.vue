@@ -4,7 +4,7 @@
             <div class="layout-container-view-content scroll">
                 <router-view v-slot="{ Component, route }">
                     <keep-alive :max="10" :include="caches">
-                        <component :is="Component"/>
+                        <component :is="Component" />
                     </keep-alive>
                 </router-view>
             </div>
@@ -12,10 +12,10 @@
     </a-layout-content>
 </template>
 <script lang="ts">
-import {computed, defineComponent, ref, watch, inject, nextTick} from 'vue'
-import {useRoute} from 'vue-router'
-import {useStore} from "vuex";
-import {NProgress} from "@/packages/plugin/nprogress";
+import { computed, defineComponent, ref, watch, inject, nextTick } from 'vue'
+import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
+import { NProgress } from '@/packages/plugin/nprogress'
 
 export default defineComponent({
     setup() {
@@ -26,9 +26,9 @@ export default defineComponent({
         const hasOpenComponentsArr = ref<Array<any>>([])
 
         const route = useRoute()
-        const $mitt: any = inject('$mitt');
+        const $mitt: any = inject('$mitt')
 
-        const routerView = ref(true);
+        const routerView = ref(true)
 
         watch(
             () => route.path,
@@ -38,12 +38,12 @@ export default defineComponent({
                 } else {
                     transitionName.value = transition[1]
                 }
-            }
+            },
         )
 
         $mitt.on('reload-router-view', () => {
             if (!NProgress.status) {
-                NProgress.start();
+                NProgress.start()
                 routerView.value = false
                 nextTick(() => {
                     routerView.value = true
@@ -52,23 +52,29 @@ export default defineComponent({
             }
         })
 
-
         /**
          * 缓存iframe
          */
         const componentsIframe = () => {
-            const menuList = store.getters['app/menuList'];
+            const menuList = store.getters['app/menuList']
             const iframeArr: Array<any> = []
             const getIframes = (arr: Array<any>) => {
-                arr.some((o: any) => (o['iframe'] && o['iframe'] !== '') && (iframeArr.push(o)) || (getIframes(o['children'] || [])));
+                arr.some(
+                    (o: any) =>
+                        (o['iframe'] && o['iframe'] !== '' && iframeArr.push(o)) ||
+                        getIframes(o['children'] || []),
+                )
             }
             getIframes(menuList)
 
             iframeArr.forEach((item) => {
-                window.__app__.component(item.path, import('@/packages/views/module/iframe/index.vue'));
-            });
+                window.__app__.component(
+                    item.path,
+                    import('@/packages/views/module/iframe/index.vue'),
+                )
+            })
 
-            hasOpenComponentsArr.value = iframeArr;
+            hasOpenComponentsArr.value = iframeArr
         }
         // componentsIframe(); 在考虑如何设计
 
@@ -76,20 +82,22 @@ export default defineComponent({
          * keep-live 缓存
          */
         const caches = computed(() => {
-            return store.getters["app/processList"].filter((item: any) => {
-                return item.keepAlive === true;
-            }).map((item: any) => {
-                return item.path.substring(1, item.path.length).replace(/\//g, "-")
-            });
+            return store.getters['app/processList']
+                .filter((item: any) => {
+                    return item.keepAlive === true
+                })
+                .map((item: any) => {
+                    return item.path.substring(1, item.path.length).replace(/\//g, '-')
+                })
         })
 
         return {
             caches,
             routerView,
             transitionName,
-            hasOpenComponentsArr
+            hasOpenComponentsArr,
         }
-    }
+    },
 })
 </script>
 <style lang="less" scoped>

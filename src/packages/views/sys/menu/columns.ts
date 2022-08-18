@@ -178,7 +178,7 @@ const columns = [
         ellipsis: true,
         width: 90,
         customRender: (item: any) => {
-            return item.text ? '是' : '否'
+            return item.text ? '是' : '否';
         },
         formData: {
             name: 'keepAlive',
@@ -194,7 +194,10 @@ const columns = [
             name: 'keepAlive',
             label: '路由缓存',
             element: 'a-radio-group',
-            options: [{ name: '是', value: 1 }, { name: '否', value: 0 }],
+            options: [
+                { name: '是', value: 1 },
+                { name: '否', value: 0 },
+            ],
             props: {
                 value: '',
             },
@@ -208,7 +211,7 @@ const columns = [
         ellipsis: true,
         width: 200,
         customRender: (item: any) => {
-            return item.text ? '是' : '否'
+            return item.text ? '是' : '否';
         },
         formData: {
             name: 'tabHidden',
@@ -229,7 +232,7 @@ const columns = [
         ellipsis: true,
         width: 90,
         customRender: (item: any) => {
-            return item.text ? '是' : '否'
+            return item.text ? '是' : '否';
         },
         formData: {
             name: 'tabFix',
@@ -249,7 +252,7 @@ const columns = [
         align: 'center',
         width: 90,
         customRender: (item: any) => {
-            return item.text ? '是' : '否'
+            return item.text ? '是' : '否';
         },
         formData: {
             name: 'shows',
@@ -300,6 +303,6 @@ const columns = [
         width: 200,
         slots: { customRender: 'action' },
     },
-]
+];
 
-export default columns
+export default columns;

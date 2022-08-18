@@ -1,6 +1,6 @@
 import { reactive, ref } from 'vue'
 
-export default function() {
+export default function () {
     const formRef = ref()
     const formState: any = reactive({
         name: '',
@@ -13,11 +13,8 @@ export default function() {
         pid: null,
     })
     const rules = {
-        name: [
-            { required: true, message: '名称为必填项', trigger: 'blur' },
-        ],
+        name: [{ required: true, message: '名称为必填项', trigger: 'blur' }],
     }
-
 
     const baseResources = reactive({
         keywords: [],

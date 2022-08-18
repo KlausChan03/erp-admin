@@ -1,7 +1,9 @@
 <template>
     <div>
         <div id="contextmenu" class="contextmenu">
-            <div class="menu" v-for="(item,idx) in items" :key="idx" @click="handleCallback(item)">{{ item.name }}</div>
+            <div class="menu" v-for="(item, idx) in items" :key="idx" @click="handleCallback(item)">
+                {{ item.name }}
+            </div>
         </div>
     </div>
 </template>

@@ -9,7 +9,9 @@
         </a-radio-group>
         <br /><br />
         <a-typography-title :level="5">描述</a-typography-title>
-        <p>当前用户的角色权限 <code>{{ roles }}</code></p>
+        <p>
+            当前用户的角色权限 <code>{{ roles }}</code>
+        </p>
         <br />
         <a-space v-if="visible">
             <a-button type="primary" v-auth="['admin']">admin管理员权限</a-button>
@@ -19,7 +21,9 @@
             <a-button type="primary" v-auth="['editor']">editor可编辑人员权限</a-button>
         </a-space>
         <br /><br />
-        <a-typography-text type="warning">v-auth权限指令如果是button禁用则显示禁用状态，否则不渲染该标签</a-typography-text>
+        <a-typography-text type="warning"
+            >v-auth权限指令如果是button禁用则显示禁用状态，否则不渲染该标签</a-typography-text
+        >
         <br /><br />
         <a-space>
             <p v-auth="[pauth]">admin权限控制html标签是否展示</p>
@@ -27,10 +31,14 @@
         </a-space>
         <br /><br />
         <a-space v-if="visible">
-            <p v-auth="['admin']">admin测试不是button元素</p><br />
-            <p v-auth="['test']">test测试不是button元素</p><br />
-            <p v-auth="['editor']">editor测试不是button元素</p><br />
-            <p v-auth="['client']">client测试不是button元素</p><br />
+            <p v-auth="['admin']">admin测试不是button元素</p>
+            <br />
+            <p v-auth="['test']">test测试不是button元素</p>
+            <br />
+            <p v-auth="['editor']">editor测试不是button元素</p>
+            <br />
+            <p v-auth="['client']">client测试不是button元素</p>
+            <br />
         </a-space>
     </bag-view>
 </template>

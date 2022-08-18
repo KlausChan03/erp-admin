@@ -4,7 +4,7 @@
         <bag-card class="hot" title="最新更新">
             <template v-slot:body>
                 <ul class="list">
-                    <li v-for="(item,idx) in items" :key="idx">
+                    <li v-for="(item, idx) in items" :key="idx">
                         <span>[小可爱]</span>
                         <a href="">你好呀，承蒙遇见，三生有幸，永远年轻</a>
                     </li>
@@ -15,7 +15,7 @@
         <bag-card class="hot" title="推荐资讯">
             <template v-slot:body>
                 <ul class="list">
-                    <li v-for="(item,idx) in items" :key="idx">
+                    <li v-for="(item, idx) in items" :key="idx">
                         <span>{{ idx + 1 }}.</span>
                         <a href="">你好呀，承蒙遇见，三生有幸，永远年轻，</a>
                     </li>
@@ -26,7 +26,7 @@
         <bag-card class="hot" title="推荐资讯">
             <template v-slot:body>
                 <ul class="list">
-                    <li v-for="(item,idx) in items" :key="idx">
+                    <li v-for="(item, idx) in items" :key="idx">
                         <span>{{ idx + 1 }}.</span>
                         <a href="">你好呀，承蒙遇见，三生有幸，永远年轻，</a>
                     </li>

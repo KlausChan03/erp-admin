@@ -1,6 +1,12 @@
 <template>
     <div class="add">
-        <a-form ref="formRef" :model="formState" :rules="rules" :label-col="{span: 6}" :wrapper-col="{span:15}">
+        <a-form
+            ref="formRef"
+            :model="formState"
+            :rules="rules"
+            :label-col="{ span: 6 }"
+            :wrapper-col="{ span: 15 }"
+        >
             <a-row>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="标题" name="title">
@@ -11,7 +17,11 @@
                     <a-form-item label="选择用户" name="user_id">
                         <a-select v-model:value="formState.user_id" placeholder="选择用户">
                             <a-select-option value="">请选择</a-select-option>
-                            <a-select-option v-for="item in baseResources.users" :key="item.id" :value="item.id">
+                            <a-select-option
+                                v-for="item in baseResources.users"
+                                :key="item.id"
+                                :value="item.id"
+                            >
                                 {{ item.username }}
                             </a-select-option>
                         </a-select>
@@ -19,8 +29,11 @@
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="标题样式" name="title_style">
-                        <a-textarea v-model:value="formState.title_style" placeholder="输入标题样式" showCount
-                                    :maxlength="300"
+                        <a-textarea
+                            v-model:value="formState.title_style"
+                            placeholder="输入标题样式"
+                            showCount
+                            :maxlength="300"
                         />
                     </a-form-item>
                 </a-col>
@@ -28,7 +41,11 @@
                     <a-form-item label="选择栏目" name="channel_id">
                         <a-select v-model:value="formState.channel_id" placeholder="选择栏目">
                             <a-select-option value="">请选择</a-select-option>
-                            <a-select-option v-for="item in baseResources.channels" :key="item.id" :value="item.id">
+                            <a-select-option
+                                v-for="item in baseResources.channels"
+                                :key="item.id"
+                                :value="item.id"
+                            >
                                 {{ item.name }}
                             </a-select-option>
                         </a-select>
@@ -64,8 +81,14 @@
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="封面图" name="image">
-                        <a-input v-model:value="formState.image" placeholder="输入封面图地址" />&nbsp;&nbsp;
-                        <bag-upload-image @update:image="baseResources.updateImage" :image="formState.image" />
+                        <a-input
+                            v-model:value="formState.image"
+                            placeholder="输入封面图地址"
+                        />&nbsp;&nbsp;
+                        <bag-upload-image
+                            @update:image="baseResources.updateImage"
+                            :image="formState.image"
+                        />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
@@ -80,21 +103,33 @@
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="组图" name="images">
-                        <a-input v-model:value="formState.images" placeholder="输入组图地址" />&nbsp;&nbsp;
-                        <bag-upload-image @update:image="baseResources.updateImages" :image="formState.images" />
+                        <a-input
+                            v-model:value="formState.images"
+                            placeholder="输入组图地址"
+                        />&nbsp;&nbsp;
+                        <bag-upload-image
+                            @update:image="baseResources.updateImages"
+                            :image="formState.images"
+                        />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="内容简述" name="describe">
-                        <a-textarea v-model:value="formState.describe" placeholder="输入内容简述" showCount
-                                    :maxlength="300"
+                        <a-textarea
+                            v-model:value="formState.describe"
+                            placeholder="输入内容简述"
+                            showCount
+                            :maxlength="300"
                         />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-                    <a-form-item :autoLink="false" :labelCol="{span:3,offset:0}" :wrapperCol="{span:19,offset:0}"
-                                 label="内容"
-                                 name="content"
+                    <a-form-item
+                        :autoLink="false"
+                        :labelCol="{ span: 3, offset: 0 }"
+                        :wrapperCol="{ span: 19, offset: 0 }"
+                        label="内容"
+                        name="content"
                     >
                         <md-editor previewTheme="mk-cute" codeTheme="paraiso" @onUploadImg="onUploadImg" v-model="formState.content" />
                     </a-form-item>
@@ -113,17 +148,29 @@
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="浏览次数" name="views">
-                        <a-input-number style="width: 100%" v-model:value="formState.views" placeholder="输入浏览次数" />
+                        <a-input-number
+                            style="width: 100%"
+                            v-model:value="formState.views"
+                            placeholder="输入浏览次数"
+                        />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="点赞次数" name="likes">
-                        <a-input-number style="width: 100%" v-model:value="formState.likes" placeholder="输入点赞次数" />
+                        <a-input-number
+                            style="width: 100%"
+                            v-model:value="formState.likes"
+                            placeholder="输入点赞次数"
+                        />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="点踩次数" name="dislikes">
-                        <a-input-number style="width: 100%" v-model:value="formState.dislikes" placeholder="输入点踩次数" />
+                        <a-input-number
+                            style="width: 100%"
+                            v-model:value="formState.dislikes"
+                            placeholder="输入点踩次数"
+                        />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
@@ -143,7 +190,11 @@
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
                     <a-form-item label="排序" name="order">
-                        <a-input-number style="width: 100%" v-model:value="formState.order" placeholder="输入排序号" />
+                        <a-input-number
+                            style="width: 100%"
+                            v-model:value="formState.order"
+                            placeholder="输入排序号"
+                        />
                     </a-form-item>
                 </a-col>
             </a-row>
@@ -161,13 +212,7 @@ export default defineComponent({
         },
     },
     setup() {
-        const {
-            formState,
-            rules,
-            baseResources,
-            formRef,
-            onUploadImg,
-        } = hook()
+        const { formState, rules, baseResources, formRef, onUploadImg } = hook()
 
         return {
             formState,

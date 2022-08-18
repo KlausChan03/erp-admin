@@ -1,7 +1,5 @@
 <template>
-    <bag-view>
-        category分类111
-    </bag-view>
+    <bag-view> category分类111 </bag-view>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'

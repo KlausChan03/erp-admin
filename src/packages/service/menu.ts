@@ -1,8 +1,5 @@
-import serviceBase from '@/packages/service/serviceBase'
+import serviceBase from '@/packages/service/serviceBase';
 
-const { apiAll, apiFind, apiCreate, apiUpdate, apiDelete, apiDeletes } = { ...serviceBase('/menu') }
+const { apiAll, apiFind, apiCreate, apiUpdate, apiDelete, apiDeletes } = { ...serviceBase('/menu') };
 
-export {
-    apiAll, apiFind, apiCreate, apiUpdate, apiDelete, apiDeletes,
-}
-
+export { apiAll, apiFind, apiCreate, apiUpdate, apiDelete, apiDeletes };

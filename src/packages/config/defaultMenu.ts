@@ -1,9 +1,10 @@
-import {addUniqueId} from '@/packages/utils/lodash'
+import { addUniqueId } from '@/packages/utils/lodash';
+// 看我写的文档字段介绍
 
 /**
  * 默认菜单
  */
-const arr: Array<any> = [
+const arr = [
     {
         name: '首页',
         path: '/home',
@@ -13,7 +14,117 @@ const arr: Array<any> = [
         iframe: '',
         tabFix: true,
         keepAlive: false,
-        filePath:'/views/home/Index.vue'
+    },
+    {
+        name: '基础资料',
+        router: '',
+        icon: 'BgIonfontClorCnf',
+        shows: 1,
+        children: [
+            {
+                name: '用户管理',
+                path: '/basic/member',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '角色管理',
+                path: '/basic/role',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '门店信息管理',
+                path: '/basic/store',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '账户信息管理',
+                path: '/basic/account',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '供应商信息管理',
+                path: '/basic/provider',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '投资人信息管理',
+                path: '/basic/investor',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '物品档案管理',
+                path: '/basic/goods',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+        ],
+    },
+    {
+        name: '财务管理',
+        router: '',
+        icon: 'BgIonfontJfen',
+        shows: 1,
+        children: [
+            {
+                name: '付款单',
+                path: '/finance/payment',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+            {
+                name: '收款单',
+                path: '/finance/receipt',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+        ],
+    },
+    {
+        name: '查询报表',
+        router: '',
+        icon: 'BgIonfontBdongtu',
+        shows: 1,
+        children: [],
+    },
+    {
+        name: '期初资料',
+        router: '',
+        icon: 'BgIonfontWnjian',
+        shows: 1,
+        children: [],
     },
     {
         name: '系统管理',
@@ -22,14 +133,13 @@ const arr: Array<any> = [
         shows: 1,
         children: [
             {
-                name: '用户管理', path: '/sys/member', icon: '', shows: 1,
-                tabHidden: false, tabFix: false, keepAlive: true,
-                filePath: '/views/sys/member/Index.vue'
-            },
-            {
-                name: '菜单列表', path: '/sys/menu', icon: '', shows: 1,
-                tabHidden: false, tabFix: false, keepAlive: true,
-                filePath: '/views/sys/menu/Index.vue'
+                name: '用户管理',
+                path: '/sys/member',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
             },
             {
                 name: '部门组织',
@@ -39,7 +149,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: true,
-                filePath: '/views/sys/branch/Index.vue'
             },
             {
                 name: '角色管理',
@@ -49,9 +158,17 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: true,
-                filePath: '/views/sys/role/Index.vue'
             },
-        ]
+            {
+                name: '菜单列表',
+                path: '/sys/menu',
+                icon: '',
+                shows: 1,
+                tabHidden: false,
+                tabFix: false,
+                keepAlive: true,
+            },
+        ],
     },
     {
         name: '组件库',
@@ -67,7 +184,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: false,
-                filePath: '/views/module/markdown/Index.vue'
             },
             {
                 name: '富文本编辑器',
@@ -77,7 +193,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: true,
-                filePath: '/views/module/rich/Index.vue'
             },
             {
                 name: '解析Exel',
@@ -87,7 +202,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: false,
-                filePath: '/views/module/exel/Index.vue'
             },
             {
                 name: '上传',
@@ -103,7 +217,6 @@ const arr: Array<any> = [
                         tabHidden: false,
                         tabFix: false,
                         keepAlive: false,
-                        filePath: '/views/module/fileUpload/FileUploadImg.vue'
                     },
                     {
                         name: '文件上传',
@@ -113,7 +226,6 @@ const arr: Array<any> = [
                         tabHidden: false,
                         tabFix: false,
                         keepAlive: false,
-                        filePath: '/views/module/fileUpload/FileUpload.vue'
                     },
                 ],
             },
@@ -125,7 +237,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: false,
-                filePath: '/views/module/print/Index.vue'
             },
             {
                 name: '简洁图标',
@@ -135,7 +246,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: false,
-                filePath: '/views/module/icon/iconfont/Index.vue'
             },
             {
                 name: '描述列表',
@@ -145,7 +255,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: false,
-                filePath: '/views/module/descriptions/Index.vue'
             },
             {
                 name: '课程表',
@@ -155,7 +264,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: true,
-                filePath: '/views/module/course/Index.vue'
             },
             {
                 name: '视频播放',
@@ -165,7 +273,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: true,
-                filePath: '/views/module/media/Index.vue'
             },
             {
                 name: '内容搜索',
@@ -175,7 +282,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: true,
-                filePath: '/views/module/fuse/Index.vue'
             },
             {
                 name: '导出文件',
@@ -185,12 +291,10 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: true,
-                filePath: '/views/module/fileSaver/Index.vue'
             },
             {
                 name: '表单生成器',
                 path: '/iframe/form-generator',
-                filePath: '/views/module/iframe/Index.vue',
                 icon: '',
                 shows: 1,
                 iframePath: 'https://demo.gin-vue-admin.com/form-generator',
@@ -200,38 +304,36 @@ const arr: Array<any> = [
             },
         ],
     },
-    {
-        name: '数据图表',
-        path: '',
-        icon: 'PieChartOutlined',
-        shows: 1,
-        tabHidden: false,
-        tabFix: false,
-        children: [
-            {
-                name: 'G2',
-                path: '/chart/g2',
-                icon: '',
-                shows: 1,
-                iframe: '',
-                tabHidden: false,
-                tabFix: false,
-                keepAlive: false,
-                filePath:'/views/chart/g2/Index.vue'
-            },
-            {
-                name: 'G2plot',
-                path: '/chart/g2plot',
-                icon: '',
-                shows: 1,
-                iframe: '',
-                tabHidden: false,
-                tabFix: false,
-                keepAlive: false,
-                filePath: '/views/chart/g2plot/Index.vue'
-            },
-        ],
-    },
+    // {
+    //     name: '数据图表',
+    //     path: '',
+    //     icon: 'PieChartOutlined',
+    //     shows: 1,
+    //     tabHidden: false,
+    //     tabFix: false,
+    //     children: [
+    //         {
+    //             name: 'G2',
+    //             path: '/chart/g2',
+    //             icon: '',
+    //             shows: 1,
+    //             iframe: '',
+    //             tabHidden: false,
+    //             tabFix: false,
+    //             keepAlive: false,
+    //         },
+    //         {
+    //             name: 'G2plot',
+    //             path: '/chart/g2plot',
+    //             icon: '',
+    //             shows: 1,
+    //             iframe: '',
+    //             tabHidden: false,
+    //             tabFix: false,
+    //             keepAlive: false,
+    //         },
+    //     ],
+    // },
     {
         name: '开发文档',
         path: '',
@@ -249,7 +351,6 @@ const arr: Array<any> = [
                 tabHidden: false,
                 tabFix: false,
                 keepAlive: false,
-                filePath: '/views/module/iframe/Index.vue',
             },
         ],
     },
@@ -261,18 +362,16 @@ const arr: Array<any> = [
         tabHidden: false,
         tabFix: false,
         keepAlive: false,
-        filePath: '/views/error/Index.vue'
     },
-    {
-        name: '打点吧',
-        path: '/admire',
-        icon: 'RedEnvelopeOutlined',
-        shows: 1,
-        tabHidden: false,
-        tabFix: false,
-        keepAlive: false,
-        filePath: '/views/admire/Index.vue'
-    },
+    // {
+    //     name: '打点吧',
+    //     path: '/admire',
+    //     icon: 'RedEnvelopeOutlined',
+    //     shows: 1,
+    //     tabHidden: false,
+    //     tabFix: false,
+    //     keepAlive: false,
+    // },
     {
         name: '权限控制',
         path: '/permit',
@@ -281,7 +380,6 @@ const arr: Array<any> = [
         tabHidden: false,
         tabFix: false,
         keepAlive: false,
-        filePath: '/views/permit/Index.vue'
     },
     {
         name: '异步组件',
@@ -291,18 +389,16 @@ const arr: Array<any> = [
         tabHidden: false,
         tabFix: false,
         keepAlive: false,
-        filePath: '/views/async/Index.vue'
     },
-    {
-        name: '关于',
-        path: '/about',
-        icon: 'UserOutlined',
-        shows: 1,
-        tabHidden: false,
-        tabFix: true,
-        keepAlive: false,
-        filePath: '/views/about/Index.vue'
-    },
+    // {
+    //     name: '关于',
+    //     path: '/about',
+    //     icon: 'UserOutlined',
+    //     shows: 1,
+    //     tabHidden: false,
+    //     tabFix: true,
+    //     keepAlive: false,
+    // },
     {
         name: '错误捕获',
         path: '/module/debug',
@@ -311,31 +407,10 @@ const arr: Array<any> = [
         tabHidden: false,
         tabFix: false,
         keepAlive: false,
-        filePath: '/views/module/debug/Index.vue'
     },
-    {
-        name: '403',
-        path: '/403',
-        icon: 'UserOutlined',
-        shows: 0,
-        tabHidden: false,
-        tabFix: false,
-        keepAlive: false,
-        filePath: '/views/error/403.vue'
-    },
-    {
-        name: '500',
-        path: '/500',
-        icon: 'UserOutlined',
-        shows: 0,
-        tabHidden: false,
-        tabFix: false,
-        keepAlive: false,
-        filePath: '/views/error/500.vue'
-    },
-]
+];
+const defaultMenu = addUniqueId(arr, '_local'); // 增加个标识符
 
-const defaultMenu = addUniqueId(arr, '_local') // 增加个标识符
 /**
  * 默认项目菜单
  */
@@ -358,9 +433,6 @@ let defaultPrjMenu = [
         shows: 1,
         menus: defaultMenu.slice(-3),
     },
-]
-defaultPrjMenu = addUniqueId(defaultPrjMenu, '_local')
-export {
-    defaultMenu,
-    defaultPrjMenu,
-}
+];
+defaultPrjMenu = addUniqueId(defaultPrjMenu, '_local');
+export { defaultMenu, defaultPrjMenu };

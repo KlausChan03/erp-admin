@@ -2,18 +2,10 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "@www/*": [
-                "www/*"
-            ],
-            "@/*": [
-                "src/*"
-            ],
-            "__ROOT__/*": [
-                "*"
-            ]
+            "@www/*": ["www/*"],
+            "@/*": ["src/*"],
+            "__ROOT__/*": ["*"]
         }
     },
-    "exclude": [
-        "node_modules"
-    ]
+    "exclude": ["node_modules"]
 }

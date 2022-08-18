@@ -2,9 +2,12 @@
     <bag-view class="rich" ref="rich">
         <a-row>
             <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-                <h3 class="title">官方API: <a href="https://github.com/quilljs/quill"
-                                            target="_blank"
-                >[Quill-富文本编辑器-文档]</a></h3>
+                <h3 class="title">
+                    官方API:
+                    <a href="https://github.com/quilljs/quill" target="_blank"
+                        >[Quill-富文本编辑器-文档]</a
+                    >
+                </h3>
                 <div>
                     <div id="editor-container"></div>
                 </div>
@@ -13,18 +16,26 @@
         <br />
         <div>
             <h3 class="title">预览</h3>
-            <p class="break-word"
-               style="min-height: 100px;border-radius: 3px;border: 1px solid #ddd;padding: 10px;box-sizing: border-box"
-               v-html="content"
+            <p
+                class="break-word"
+                style="
+                    min-height: 100px;
+                    border-radius: 3px;
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    box-sizing: border-box;
+                "
+                v-html="content"
             ></p>
         </div>
         <a-space :size="10">
-            <a-button type="primary" :danger="readonly" @click="handleSetQuillDisable">{{
-                    readonly ? '设置编辑' : '设置只读'
-                }}
+            <a-button type="primary" :danger="readonly" @click="handleSetQuillDisable"
+                >{{ readonly ? '设置编辑' : '设置只读' }}
             </a-button>
             <a-button type="primary" @click="handleGetQuillContent">获取所有内容</a-button>
-            <a-button type="primary" class="hidden-xs" @click="handleQuillConsole">打印Quill实列</a-button>
+            <a-button type="primary" class="hidden-xs" @click="handleQuillConsole"
+                >打印Quill实列</a-button
+            >
         </a-space>
     </bag-view>
 </template>
@@ -75,7 +86,6 @@ export default defineComponent({
             quill.on('text-change', () => {
                 content.value = quill.root.innerHTML
             })
-
         })
 
         // 获取内容
@@ -139,87 +149,87 @@ export default defineComponent({
     border: 1px solid #dcdfe6;
 }
 
-.ql-snow .ql-tooltip[data-mode="link"]::before {
-    content: "请输入链接地址:";
+.ql-snow .ql-tooltip[data-mode='link']::before {
+    content: '请输入链接地址:';
 }
 
 .ql-snow .ql-tooltip.ql-editing a.ql-action::after {
     border-right: 0px;
-    content: "保存";
+    content: '保存';
     padding-right: 0px;
 }
 
-.ql-snow .ql-tooltip[data-mode="video"]::before {
-    content: "请输入视频地址:";
+.ql-snow .ql-tooltip[data-mode='video']::before {
+    content: '请输入视频地址:';
 }
 
 .ql-snow .ql-picker.ql-size .ql-picker-label::before,
 .ql-snow .ql-picker.ql-size .ql-picker-item::before {
-    content: "14px";
+    content: '14px';
 }
 
-.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="small"]::before,
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="small"]::before {
-    content: "10px";
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='small']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='small']::before {
+    content: '10px';
 }
 
-.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="large"]::before,
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="large"]::before {
-    content: "18px";
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='large']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='large']::before {
+    content: '18px';
 }
 
-.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="huge"]::before,
-.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="huge"]::before {
-    content: "32px";
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value='huge']::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value='huge']::before {
+    content: '32px';
 }
 
 .ql-snow .ql-picker.ql-header .ql-picker-label::before,
 .ql-snow .ql-picker.ql-header .ql-picker-item::before {
-    content: "文本";
+    content: '文本';
 }
 
-.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
-.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
-    content: "标题1";
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='1']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='1']::before {
+    content: '标题1';
 }
 
-.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,
-.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
-    content: "标题2";
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='2']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='2']::before {
+    content: '标题2';
 }
 
-.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="3"]::before,
-.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
-    content: "标题3";
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='3']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='3']::before {
+    content: '标题3';
 }
 
-.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="4"]::before,
-.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
-    content: "标题4";
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='4']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='4']::before {
+    content: '标题4';
 }
 
-.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="5"]::before,
-.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
-    content: "标题5";
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='5']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='5']::before {
+    content: '标题5';
 }
 
-.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="6"]::before,
-.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
-    content: "标题6";
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value='6']::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value='6']::before {
+    content: '标题6';
 }
 
 .ql-snow .ql-picker.ql-font .ql-picker-label::before,
 .ql-snow .ql-picker.ql-font .ql-picker-item::before {
-    content: "标准字体";
+    content: '标准字体';
 }
 
-.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="serif"]::before,
-.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="serif"]::before {
-    content: "衬线字体";
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='serif']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='serif']::before {
+    content: '衬线字体';
 }
 
-.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="monospace"]::before,
-.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="monospace"]::before {
-    content: "等宽字体";
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='monospace']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='monospace']::before {
+    content: '等宽字体';
 }
 </style>

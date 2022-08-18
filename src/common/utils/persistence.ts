@@ -1,8 +1,7 @@
 // @ts-ignore
-import store from "store";
+import store from 'store';
 
 export default {
-
     suffix: '_webtime', // 后缀名
 
     /**
@@ -15,7 +14,6 @@ export default {
         });
         return d;
     },
-
 
     get(key: string) {
         return store.get(key);
@@ -75,6 +73,6 @@ export default {
         let encryptData_webtime = store.get('encryptData_webtime');
         store.clearAll();
         store.set('encryptData', encryptData);
-        store.set('encryptData_webtime', encryptData_webtime)
-    }
-}
+        store.set('encryptData_webtime', encryptData_webtime);
+    },
+};

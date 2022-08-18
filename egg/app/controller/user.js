@@ -28,12 +28,14 @@ class UserController extends baseController {
     async login() {
         const {ctx} = this
         const body = ctx.request.body
+        console.log(body, 'hhhhhhhh')
         try {
             this.ctx.validate({
                 username: {type: 'string', min: 2, max: 20, require: true},
                 password: {type: 'string', min: 6, max: 20, require: true},
             })
             const token = ctx.setToken({password: body.password, username: body.username})
+            console.log(token)
             const result = await ctx.model.Member.findOne({
                 where: {
                     username: body.username,

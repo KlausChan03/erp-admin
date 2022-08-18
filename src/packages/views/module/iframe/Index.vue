@@ -2,18 +2,18 @@
     <bag-view>
         <a-spin
             wrapperClassName="spinning"
-            style="height:100%;width:100%"
+            style="height: 100%; width: 100%"
             :spinning="loading"
             tip="Loading..."
         >
-            <iframe style="width:100%;height:99.0%" :src="url" frameborder="0"></iframe>
+            <iframe style="width: 100%; height: 99%" :src="url" frameborder="0"></iframe>
         </a-spin>
     </bag-view>
 </template>
 
 <script>
 export default {
-    name:'iframeView',
+    name: 'iframeView',
     data() {
         return {
             loading: false,
@@ -24,16 +24,14 @@ export default {
     watch: {
         $route: {
             handler({ meta }) {
-                this.url = this.$store.getters['app/currentRouter'].iframePath;
+                this.url = this.$store.getters['app/currentRouter'].iframePath
                 this.loading = true
             },
             immediate: true,
         },
     },
-	created() {
-
-	},
-	mounted() {
+    created() {},
+    mounted() {
         const iframe = this.$el.querySelector('iframe')
         this.loading = true
 
@@ -47,7 +45,7 @@ export default {
 .spinning {
     height: 100%;
     width: 100%;
-    :deep(.ant-spin-container){
+    :deep(.ant-spin-container) {
         height: 100%;
         width: 100%;
     }

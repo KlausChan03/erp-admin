@@ -12,7 +12,7 @@
                 </Draggable>
             </a-col>
             <a-col :xs="24" :sm="24" :md="12" :lg="8" :xl="6" :xxl="4">
-                <Draggable :defaultPosition="{x: 0, y: 0}">
+                <Draggable :defaultPosition="{ x: 0, y: 0 }">
                     <div>Bound to parent</div>
                 </Draggable>
             </a-col>
@@ -26,11 +26,9 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
-    name:'module-draggable',
-    setup() {
-
-    }
-});
+    name: 'module-draggable',
+    setup() {},
+})
 </script>

@@ -1,22 +1,22 @@
 <template>
     <bag-view>
         <a-divider orientation="left">大文件上传</a-divider>
-        <Breakpoint/>
+        <Breakpoint />
     </bag-view>
 </template>
 <script lang="ts">
-import {defineComponent, ref} from 'vue';
+import { defineComponent, ref } from 'vue'
 import Breakpoint from './Breakpoint.vue'
 
 export default defineComponent({
-    name:'module-fileUpload',
+    name: 'module-fileUpload',
     components: {
-        Breakpoint
+        Breakpoint,
     },
     setup() {
         return {
             activeKey: ref('1'),
-        };
+        }
     },
-});
+})
 </script>

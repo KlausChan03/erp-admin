@@ -5,7 +5,4 @@ const setupGlobComponents = (app: App) => {
 
 }
 
-
-export {
-    setupGlobComponents,
-}
+export { setupGlobComponents }

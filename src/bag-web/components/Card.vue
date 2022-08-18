@@ -6,7 +6,9 @@
             </div>
             <div class="card-heading-more">
                 <ul>
-                    <li v-for="(item,idx) in more" :key="idx"><a href="">{{ item.name }}</a></li>
+                    <li v-for="(item, idx) in more" :key="idx">
+                        <a href="">{{ item.name }}</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -31,9 +33,7 @@ export default defineComponent({
             default: [],
         },
     },
-    setup() {
-
-    },
+    setup() {},
 })
 </script>
 <style lang="less" scoped>
@@ -83,7 +83,6 @@ export default defineComponent({
         padding: 15px 15px;
 
         &-article {
-
         }
     }
 }
