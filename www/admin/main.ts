@@ -5,6 +5,7 @@ import paths from '@www/admin/router'
 import { setupSocket } from '@/packages/socket'
 import ThemeBar from '@www/admin/components/ThemeBar.vue'
 import setupGlobComponents from '@www/admin/plugin/md-editor-v3'
+// import 'vue-bag-admin/mock/admin'
 const file: Record<string, Component> = import.meta.globEager('/www/admin/views/**/*.vue')
 const $options: $optionsType = {
     router: { file, paths, defaults: false },

@@ -9,85 +9,23 @@
         >
             <a-row>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-                    <a-form-item label="部门组织" name="did">
-                        <a-tree-select
-                            v-model:value="formState.did"
-                            style="width: 100%"
-                            :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
-                            :tree-data="treeData"
-                            :replace-fields="{
-                                children: 'children',
-                                key: 'id',
-                                value: 'id',
-                                title: 'name',
-                            }"
-                            placeholder="选择部门组织"
-                            allow-clear
-                            tree-default-expand-all
-                        >
-                            <template #title="{ key, value, title }">
-                                <span>{{ title }}</span>
-                            </template>
-                        </a-tree-select>
+                    <a-form-item label="付款单编号" name="payCode">
+                        <a-input v-model:value="formState.payCode" placeholder="输入付款单编号" />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-                    <a-form-item label="角色" name="roles">
-                        <a-select
-                            v-model:value="formState.roles"
-                            mode="tags"
-                            :maxTagCount="3"
-                            style="width: 100%"
-                            placeholder="选择用户角色"
-                            :options="rolesOptions"
-                        >
-                        </a-select>
+                    <a-form-item label="付款金额" name="amount">
+                        <a-input v-model:value="formState.amount" placeholder="输入付款金额" />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-                    <a-form-item label="姓名" name="username">
-                        <a-input v-model:value="formState.username" placeholder="输入用户姓名" />
+                    <a-form-item label="减少现金余额" name="reduceCashBalances">
+                        <a-input v-model:value="formState.reduceCashBalances" placeholder="输入减少现金余额" />
                     </a-form-item>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-                    <a-form-item label="性别" name="sex">
-                        <a-select
-                            v-model:value="formState.sex"
-                            style="width: 100%"
-                            placeholder="选择用户性别"
-                        >
-                            <a-select-option :value="1">女</a-select-option>
-                            <a-select-option :value="2">男</a-select-option>
-                            <a-select-option :value="0">保密</a-select-option>
-                        </a-select>
-                    </a-form-item>
-                </a-col>
-                <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-                    <a-form-item label="年龄" name="age">
-                        <a-input v-model:value="formState.age" placeholder="输入年龄" />
-                    </a-form-item>
-                </a-col>
-                <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-                    <a-form-item label="邮箱" name="email">
-                        <a-input v-model:value="formState.email" placeholder="输入邮箱" />
-                    </a-form-item>
-                </a-col>
-                <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-                    <a-form-item label="手机号" name="phone">
-                        <a-input v-model:value="formState.phone" placeholder="输入手机号" />
-                    </a-form-item>
-                </a-col>
-                <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-                    <a-form-item label="是否禁用" name="state">
-                        <a-radio-group v-model:value="formState.state">
-                            <a-radio :value="true">启用</a-radio>
-                            <a-radio :value="false">禁用</a-radio>
-                        </a-radio-group>
-                    </a-form-item>
-                </a-col>
-                <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
-                    <a-form-item label="描述" name="describe">
-                        <a-textarea v-model:value="formState.describe" placeholder="输入描述" />
+                    <a-form-item label="减少应付金额" name="reduceDueAmount">
+                        <a-input v-model:value="formState.reduceDueAmount" placeholder="输入减少应付金额" />
                     </a-form-item>
                 </a-col>
             </a-row>
@@ -96,13 +34,6 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive, ref, toRaw, UnwrapRef, watch } from 'vue'
-import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface'
-import { apiUpdate, apiFind } from '@/packages/service/member'
-import { apiAll as apiBranchAll } from '@/packages/service/branch'
-import { apiAll as apiRoleAll } from '@/packages/service/role'
-import { toTree } from '@/packages/utils/utils'
-import { validatPhone } from '@/packages/utils/validator'
-import { filterData } from '@/packages/utils/lodash'
 
 export default defineComponent({
     props: {
@@ -112,42 +43,21 @@ export default defineComponent({
         },
     },
     setup(props, { emit }) {
-        const treeData = ref()
         const rolesOptions = ref()
         const formRef = ref()
         const formState: any = reactive({
-            username: '',
-            sex: 1,
-            age: '',
-            email: '',
-            phone: '',
-            roles: [],
-            describe: '',
-            did: undefined,
-            state: true,
-            id: '',
+            payCode: '',
+            amount: '',
+            reduceCashBalances: '',
+            reduceDueAmount: ''
         })
         const rules = {
-            username: [{ required: true, message: '姓名为必填项', trigger: 'blur' }],
-            phone: [{ required: true, validator: validatPhone, trigger: 'blur' }],
-            describe: [{ trigger: 'blur', max: 200, message: '最大长度为200' }],
+            payCode: [{ required: true, message: '付款单编号为必填项', trigger: 'blur' }],
+            amount: [{ required: true, message: '付款金额为必填项',trigger: 'blur' }],
         }
-        apiBranchAll().then((res: Array<any>) => {
-            treeData.value = toTree(res)
-        })
-        apiRoleAll().then((res: Array<any>) => {
-            rolesOptions.value = res.map((item) => {
-                return {
-                    ...item,
-                    value: item.tag,
-                }
-            })
-        })
-
         return {
             formState,
             rules,
-            treeData,
             rolesOptions,
             formRef,
         }

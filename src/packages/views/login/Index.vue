@@ -103,6 +103,7 @@ export default defineComponent({
                 .validate()
                 .then(() => {
                     apiLogin(formState).then(() => {
+                        debugger
                         if (formState.rememberPas) {
                             locaStore.set('encryptData', aseEncrypt(JSON.stringify(formState)), 3600 * 24 * 7)
                         }

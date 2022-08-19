@@ -1966,13 +1966,6 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-brace-expansion@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmmirror.com/brace-expansion/-/brace-expansion-2.0.1.tgz#1edc459e0f0c548486ecf9fc99f2221364b9a0ae"
-  integrity sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==
-  dependencies:
-    balanced-match "^1.0.0"
-
 braces@^2.3.1, braces@^2.3.2:
   version "2.3.2"
   resolved "https://registry.npmjs.org/braces/-/braces-2.3.2.tgz"
@@ -4802,17 +4795,6 @@ glob-watcher@^5.0.3:
     normalize-path "^3.0.0"
     object.defaults "^1.1.0"
 
-glob@*:
-  version "8.0.3"
-  resolved "https://registry.npmmirror.com/glob/-/glob-8.0.3.tgz#415c6eb2deed9e502c68fa44a272e6da6eeca42e"
-  integrity sha512-ull455NHSHI/Y1FqGaaYFaLGkNMMJbavMrEGFXG/PGrg6y7sutWHUHrz6gy6WEBH6akM1M414dWKCNs+IhKdiQ==
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^5.0.1"
-    once "^1.3.0"
-
 glob@7.2.3, glob@^7.1.1, glob@^7.1.3, glob@~7.2.0:
   version "7.2.3"
   resolved "https://registry.npmjs.org/glob/-/glob-7.2.3.tgz"
@@ -5109,9 +5091,9 @@ hash-sum@^2.0.0:
   resolved "https://registry.npmjs.org/hash-sum/-/hash-sum-2.0.0.tgz"
   integrity sha512-WdZTbAByD+pHfl/g9QSsBIIwy8IT+EsPiKDs0KNX+zSHhdDLFKdZu0BQHljvO+0QI/BasbMSUa8wYNCZTvhslg==
 
-hash.js@*:
+hash.js@^1.1.5:
   version "1.1.7"
-  resolved "https://registry.npmjs.org/hash.js/-/hash.js-1.1.7.tgz"
+  resolved "https://registry.npmmirror.com/hash.js/-/hash.js-1.1.7.tgz#0babca538e8d4ee4a0f8988d68866537a003cf42"
   integrity sha512-taOaskGt4z4SOANNseOviYDvjEJinIkRgmp7LbKP2YTTmVxWBl87s/uzK9r+44BclBSp2X7K1hqeNfz9JbBeXA==
   dependencies:
     inherits "^2.0.3"
@@ -5760,6 +5742,11 @@ js-yaml@^4.1.0:
   dependencies:
     argparse "^2.0.1"
 
+jsencrypt@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.npmmirror.com/jsencrypt/-/jsencrypt-3.2.1.tgz#09766983cc760088ff26b12fe7e574252af97727"
+  integrity sha512-k1sD5QV0KPn+D8uG9AdGzTQuamt82QZ3A3l6f7TRwMU6Oi2Vg0BsL+wZIQBONcraO1pc78ExMdvmBBJ8WhNYUA==
+
 jsesc@^2.5.1:
   version "2.5.2"
   resolved "https://registry.npmjs.org/jsesc/-/jsesc-2.5.2.tgz"
@@ -5948,17 +5935,17 @@ less-loader@^7.0.1:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-less-plugin-npm-import@*:
+less-plugin-npm-import@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.npmjs.org/less-plugin-npm-import/-/less-plugin-npm-import-2.1.0.tgz"
+  resolved "https://registry.npmmirror.com/less-plugin-npm-import/-/less-plugin-npm-import-2.1.0.tgz#823e6986c93318a98171ca858848b6bead55bf3e"
   integrity sha512-f7pVkEooRq2/jge/M/Y+spoPXj5rRIY30q1as+3kZsDG8Rs+loNJUCVQjzXB9Ao/9FeIJULiq2zrXymv+OMTbw==
   dependencies:
     promise "~7.0.1"
     resolve "~1.1.6"
 
-less@*, less@^3.12.2:
+less@^3.12.2, less@^3.9.0:
   version "3.13.1"
-  resolved "https://registry.npmjs.org/less/-/less-3.13.1.tgz"
+  resolved "https://registry.npmmirror.com/less/-/less-3.13.1.tgz#0ebc91d2a0e9c0c6735b83d496b0ab0583077909"
   integrity sha512-SwA1aQXGUvp+P5XdZslUOhhLnClSLIjWvJhmd+Vgib5BFIr9lMNlQwmwUNOjXThF/A0x+MCYYPeWEfeWiLRnTw==
   dependencies:
     copy-anything "^2.0.1"
@@ -6431,13 +6418,6 @@ minimatch@^3.0.4, minimatch@^3.1.1, minimatch@^3.1.2:
   integrity sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==
   dependencies:
     brace-expansion "^1.1.7"
-
-minimatch@^5.0.1:
-  version "5.1.0"
-  resolved "https://registry.npmmirror.com/minimatch/-/minimatch-5.1.0.tgz#1717b464f4971b144f6aabe8f2d0b8e4511e09c7"
-  integrity sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==
-  dependencies:
-    brace-expansion "^2.0.1"
 
 minimist-options@4.1.0:
   version "4.1.0"
@@ -7361,9 +7341,9 @@ postcss-value-parser@^4.2.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@*:
+postcss@^6.0.21:
   version "6.0.23"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-6.0.23.tgz"
+  resolved "https://registry.npmmirror.com/postcss/-/postcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
   integrity sha512-soOk1h6J3VMTZtVeVpv15/Hpdl2cBLX3CAw4TAbkpTJiNPk9YP/zWcD1ND+xEtvyuuvKzbxliTOIyvkSeSJ6ag==
   dependencies:
     chalk "^2.4.1"
@@ -7596,6 +7576,13 @@ qrcode@^1.4.4:
     encode-utf8 "^1.0.3"
     pngjs "^5.0.0"
     yargs "^15.3.1"
+
+qs@^6.11.0:
+  version "6.11.0"
+  resolved "https://registry.npmmirror.com/qs/-/qs-6.11.0.tgz#fd0d963446f7a65e1367e01abd85429453f0c37a"
+  integrity sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==
+  dependencies:
+    side-channel "^1.0.4"
 
 queue-microtask@^1.2.2:
   version "1.2.3"
@@ -8512,9 +8499,9 @@ strip-bom@^2.0.0:
   dependencies:
     is-utf8 "^0.2.0"
 
-strip-css-comments@*:
+strip-css-comments@^4.1.0:
   version "4.1.0"
-  resolved "https://registry.npmjs.org/strip-css-comments/-/strip-css-comments-4.1.0.tgz"
+  resolved "https://registry.npmmirror.com/strip-css-comments/-/strip-css-comments-4.1.0.tgz#ca798e3e6b71929f0b354e0bd72e7759b2ea17e0"
   integrity sha512-azjRwrqk7nK21LU7QuL7DpDyPjvRROQvqPrNyyz6emdzbOh6fsNTvkSvUiThBLzC6+MN90rFu296VbPb/KV+3A==
   dependencies:
     is-regexp "^2.1.0"

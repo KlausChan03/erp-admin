@@ -50,6 +50,13 @@ class UserController extends baseController {
                     signed: true,     //对cookie进行签名  防止用户修改cookie
                     encrypt: true,   //是否对cookie进行加密     如果cookie加密那么获取的时候要对cookie进行解密
                 })
+                this.ctx.cookies.set('userInfo', JSON.stringify(result.dataValues), {
+                    maxAge: 1000 * 3600 * 30,
+                    httpOnly: true,
+                    signed: true,
+                    encrypt: true,
+                })
+                console.log(result.dataValues, ctx.cookies.get('token'), 'good')
                 this.result({data: result})
             } else {
                 this.result({data: '', message: '没有找到该用户', code: 1002})

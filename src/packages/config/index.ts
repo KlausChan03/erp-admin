@@ -12,7 +12,7 @@ const themeConfig = {
     tabStyle: 1,
     // 是否折叠项目菜单
     foldPrjMenu: false,
-}
+};
 
 /**
  * 网络配置
@@ -42,17 +42,13 @@ const httpNetwork = {
     resetPath: '/login',
     // 序列化
     serialize: false, // 是否表单序列化
-}
+};
 
 // 网站配置
 const webSite = {
     title: 'vue-bag-admin',
     subhead: 'amin',
     logoImage,
-}
+};
 
-export {
-    themeConfig,
-    httpNetwork,
-    webSite
-}
+export { themeConfig, httpNetwork, webSite };

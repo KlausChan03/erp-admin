@@ -12,7 +12,9 @@ class FinancePaymentController extends baseController {
      */
     async create() {
         const { ctx } = this
-        const result = await ctx.model.Finance.Payment.create({ ...ctx.request.body })
+        let userInfo = ctx.cookies.get('userInfo', { signed: false, encrypt: true })
+        userInfo = userInfo ? JSON.parse(userInfo) : {}
+        const result = await ctx.model.Finance.Payment.create({ ...ctx.request.body,creator: userInfo.username })
         this.result({ data: result })
     }
 
@@ -65,9 +67,6 @@ class FinancePaymentController extends baseController {
     async all() {
         const { ctx } = this
         const { ks } = ctx.request.body
-        const userInfo = this.ctx.cookies.get('token', { signed: false, encrypt: true })
-        console.log(userInfo, 'hhh')
-
         const where = {}
         if (ks) {
             where.name = { [Op.like]: `%${ks}%` } // 模糊查詢 https://www.sequelize.com.cn/core-concepts/model-querying-basics

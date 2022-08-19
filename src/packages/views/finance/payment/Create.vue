@@ -18,53 +18,40 @@
                         <a-input v-model:value="formState.amount" placeholder="输入付款金额" />
                     </a-form-item>
                 </a-col>
+                <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
+                    <a-form-item label="减少现金余额" name="reduceCashBalances">
+                        <a-input v-model:value="formState.reduceCashBalances" placeholder="输入减少现金余额" />
+                    </a-form-item>
+                </a-col>
+                <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
+                    <a-form-item label="减少应付金额" name="reduceDueAmount">
+                        <a-input v-model:value="formState.reduceDueAmount" placeholder="输入减少应付金额" />
+                    </a-form-item>
+                </a-col>
             </a-row>
         </a-form>
     </div>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, ref, toRaw, UnwrapRef } from 'vue'
-import { apiAll as apiBranchAll } from '@/packages/service/branch'
-import { toTree } from '@/packages/utils/utils'
-import { validatPhone } from '@/packages/utils/validator'
-import { apiAll as apiRoleAll } from '@/packages/service/role'
 
 export default defineComponent({
     setup(props, { emit }) {
-        const treeData = ref()
         const rolesOptions = ref()
         const formRef = ref()
         const formState: any = reactive({
-            username: '',
-            sex: 1,
-            age: '',
-            email: '',
-            phone: '',
-            roles: [],
-            describe: '',
-            did: undefined,
-            state: 1,
+            payCode: '',
+            amount: '',
+            reduceCashBalances: '',
+            reduceDueAmount: ''
         })
         const rules = {
-            username: [{ required: true, message: '姓名为必填项', trigger: 'blur' }],
-            phone: [{ required: true, validator: validatPhone, trigger: 'blur' }],
-            describe: [{ trigger: 'blur', max: 200, message: '最大长度为200' }],
+            payCode: [{ required: true, message: '付款单编号为必填项', trigger: 'blur' }],
+            amount: [{ required: true, message: '付款金额为必填项',trigger: 'blur' }],
         }
-        apiBranchAll().then((res: Array<any>) => {
-            treeData.value = toTree(res)
-        })
-        apiRoleAll().then((res: Array<any>) => {
-            rolesOptions.value = res.map((item) => {
-                return {
-                    ...item,
-                    value: item.tag,
-                }
-            })
-        })
         return {
             formState,
             rules,
-            treeData,
             rolesOptions,
             formRef,
         }

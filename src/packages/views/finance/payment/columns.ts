@@ -24,7 +24,7 @@ const columns = [
         key: 'amount',
         ellipsis: true,
         align: 'center',
-        width: 80,
+        width: 120,
         slots: { customRender: 'amount' },
     },
     {
@@ -33,6 +33,7 @@ const columns = [
         key: 'reduceCashBalances',
         ellipsis: true,
         align: 'center',
+        width: 120,
         slots: { customRender: 'reduceCashBalances' },
     },
     {
@@ -56,6 +57,14 @@ const columns = [
         title: '创建时间',
         dataIndex: 'createTime',
         key: 'createTime',
+        align: 'center',
+        ellipsis: true,
+        width: 180,
+    },
+    {
+        title: '编辑时间',
+        dataIndex: 'updateTime',
+        key: 'updateTime',
         align: 'center',
         ellipsis: true,
         width: 180,
